@@ -1,0 +1,2 @@
+"""TIC holdings ingestion service."""
+

@@ -1,0 +1,20 @@
+[
+  {
+    "file": "slt_table3.txt",
+    "url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table3.txt",
+    "downloaded_at": "2026-09-10T00:55:44.777Z",
+    "sha256": "81C5ED08BB3A998982646DAEF5DA36327A888B736D893BF3729070E868331EF0"
+  },
+  {
+    "file": "slt_table5.txt",
+    "url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt",
+    "downloaded_at": "2026-09-10T00:55:45.025Z",
+    "sha256": "391F58CE7B290FDD149658A20A885FF1897D05EB80146F36DEC75A06402E258A"
+  },
+  {
+    "file": "slt3d_globl.csv",
+    "url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt3d_globl.csv",
+    "downloaded_at": "2026-09-10T00:55:45.594Z",
+    "sha256": "D6B74F0A24E156F86911A383B1A2AE1FDD444017B4875716ED67A0FDEEBA52AE"
+  }
+]

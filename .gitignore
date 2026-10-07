@@ -1,0 +1,10 @@
+.env
+.venv/
+.pydeps/
+.test-wheels/
+.validation/
+__pycache__/
+*.py[cod]
+*.db
+data/raw/archive/
+
