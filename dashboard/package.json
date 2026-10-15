@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
+    "build:standalone": "vite build --config standalone.vite.config.ts && node render-standalone.mjs && node ../scripts/build-standalone-html.mjs",
     "prepare:data": "node ../scripts/prepare-data.mjs",
     "validate:data": "node ../scripts/validate-data.mjs",
     "validate:charts": "node ../scripts/validate-supporting-charts.mjs",

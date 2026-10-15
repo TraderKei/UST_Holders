@@ -4,6 +4,8 @@
 
 ## 실행
 
+서버 없이 최종 화면을 보려면 프로젝트 루트의 [`UST_Holders_v1.html`](UST_Holders_v1.html)을 브라우저에서 엽니다. 이 파일에는 화면 코드, 스타일, TIC 데이터 스냅샷이 포함되어 있습니다. 화면이나 데이터를 수정한 뒤에는 `cd dashboard`에서 `npm run build:standalone`으로 다시 생성합니다.
+
 Node.js 22.13 이상이 필요합니다. 프로젝트 루트에서 다음 명령을 실행합니다.
 
 ```powershell

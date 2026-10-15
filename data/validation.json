@@ -1,0 +1,2873 @@
+{
+  "status": "PASS",
+  "validated_at": "2026-09-14T05:10:09.600Z",
+  "latest_month": "2026-06",
+  "first_month": "2011-09",
+  "rows": 19633,
+  "entities": 132,
+  "counts_by_record_type": {
+    "country": 116,
+    "region": 8,
+    "institution": 6,
+    "total": 2
+  },
+  "overlap_rows": 3330,
+  "overlap_differences": 235,
+  "manifest": [
+    {
+      "file": "slt_table3.txt",
+      "url_matches": true,
+      "sha256_matches": true,
+      "downloaded_at_present": true
+    },
+    {
+      "file": "slt_table5.txt",
+      "url_matches": true,
+      "sha256_matches": true,
+      "downloaded_at_present": true
+    },
+    {
+      "file": "slt3d_globl.csv",
+      "url_matches": true,
+      "sha256_matches": true,
+      "downloaded_at_present": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "원본 manifest URL·다운로드 시각·SHA-256",
+      "pass": true,
+      "evidence": [
+        {
+          "file": "slt_table3.txt",
+          "url_matches": true,
+          "sha256_matches": true,
+          "downloaded_at_present": true
+        },
+        {
+          "file": "slt_table5.txt",
+          "url_matches": true,
+          "sha256_matches": true,
+          "downloaded_at_present": true
+        },
+        {
+          "file": "slt3d_globl.csv",
+          "url_matches": true,
+          "sha256_matches": true,
+          "downloaded_at_present": true
+        }
+      ]
+    },
+    {
+      "name": "Table 3 시스템 헤더 탐색",
+      "pass": true,
+      "evidence": 8
+    },
+    {
+      "name": "Table 3 필수 필드",
+      "pass": true,
+      "evidence": []
+    },
+    {
+      "name": "최신 기준월 Table 3 = Table 5 = tic.json",
+      "pass": true,
+      "evidence": {
+        "table3": "2026-06",
+        "table5": "2026-06",
+        "tic_json": "2026-06"
+      }
+    },
+    {
+      "name": "Table 3 원본 값과 출력 레코드 일치",
+      "pass": true,
+      "evidence": {
+        "rows": 7098,
+        "mismatches": 0
+      }
+    },
+    {
+      "name": "결측값 null 보존 및 0 비대체",
+      "pass": true,
+      "evidence": {
+        "table3_null_values": 14575
+      }
+    },
+    {
+      "name": "Table 3 ↔ Table 5 주요 값",
+      "pass": true,
+      "evidence": {
+        "comparisons": 286,
+        "failures": 0,
+        "tolerance_bn": 0.051
+      }
+    },
+    {
+      "name": "최신월 Grand Total = All Countries + Total IROs",
+      "pass": true,
+      "evidence": {
+        "month": "2026-06",
+        "grand_total": 9298959,
+        "all_countries": 9205836,
+        "total_iros": 93123,
+        "tolerance_usd_mn": 1
+      }
+    },
+    {
+      "name": "장기채 + 단기채 = 총보유액",
+      "pass": true,
+      "evidence": {
+        "comparisons": 14491,
+        "mismatches": 0,
+        "tolerance_usd_mn": 1
+      }
+    },
+    {
+      "name": "국가·지역·기관·합계 분류",
+      "pass": true,
+      "evidence": {
+        "country": 116,
+        "region": 8,
+        "institution": 6,
+        "total": 2
+      }
+    },
+    {
+      "name": "국가명과 TIC 코드 보존",
+      "pass": true,
+      "evidence": {
+        "entities": 132,
+        "records": 19633
+      }
+    },
+    {
+      "name": "합계·지역·기관 행은 국가 순위에서 제외",
+      "pass": true,
+      "evidence": {
+        "latest_country_candidates": 60,
+        "eligibility_mismatches": 0,
+        "aggregate_candidates": 0
+      }
+    },
+    {
+      "name": "기준 단위와 잠정치 메타데이터",
+      "pass": true,
+      "evidence": {
+        "base_unit": "USD million",
+        "table5_unit": "USD billion",
+        "is_preliminary": null
+      }
+    },
+    {
+      "name": "시계열 연결 및 거래·평가 시작 메타데이터",
+      "pass": true,
+      "evidence": {
+        "history_join": "2020-01",
+        "transaction_start": "2023-02"
+      }
+    },
+    {
+      "name": "파생지표 지연월과 null 규칙",
+      "pass": true,
+      "evidence": {
+        "comparison_lags_months": [
+          1,
+          3,
+          6,
+          12
+        ],
+        "zero_denominator_result": null,
+        "missing_comparison_result": null
+      }
+    },
+    {
+      "name": "파생지표 계산 구조",
+      "pass": true,
+      "evidence": {
+        "changes": {
+          "1": {
+            "amount_values": 14297,
+            "amount_nulls": 5336,
+            "pct_values": 14297,
+            "pct_nulls": 5336
+          },
+          "3": {
+            "amount_values": 14197,
+            "amount_nulls": 5436,
+            "pct_values": 14197,
+            "pct_nulls": 5436
+          },
+          "6": {
+            "amount_values": 13903,
+            "amount_nulls": 5730,
+            "pct_values": 13903,
+            "pct_nulls": 5730
+          },
+          "12": {
+            "amount_values": 13315,
+            "amount_nulls": 6318,
+            "pct_values": 13315,
+            "pct_nulls": 6318
+          }
+        },
+        "share_of_grand_total_pct": {
+          "values": 14491,
+          "nulls": 5142
+        },
+        "long_term_share_pct": {
+          "values": 14491,
+          "nulls": 5142
+        },
+        "short_term_share_pct": {
+          "values": 14491,
+          "nulls": 5142
+        },
+        "other_adjustment_usd_mn": {
+          "values": 3075,
+          "nulls": 16558
+        }
+      }
+    }
+  ],
+  "warnings": [
+    {
+      "name": "Historical 원본 Grand Total 항등식 예외",
+      "evidence": {
+        "comparisons": 176,
+        "mismatches": [
+          {
+            "month": "2018-04",
+            "grandTotal": 6179972,
+            "allCountries": 6130729,
+            "totalIros": 49740
+          }
+        ],
+        "note": "공식 Historical CSV 값을 보정하지 않고 원문 그대로 보존"
+      }
+    }
+  ],
+  "derived_metric_coverage": {
+    "changes": {
+      "1": {
+        "amount_values": 14297,
+        "amount_nulls": 5336,
+        "pct_values": 14297,
+        "pct_nulls": 5336
+      },
+      "3": {
+        "amount_values": 14197,
+        "amount_nulls": 5436,
+        "pct_values": 14197,
+        "pct_nulls": 5436
+      },
+      "6": {
+        "amount_values": 13903,
+        "amount_nulls": 5730,
+        "pct_values": 13903,
+        "pct_nulls": 5730
+      },
+      "12": {
+        "amount_values": 13315,
+        "amount_nulls": 6318,
+        "pct_values": 13315,
+        "pct_nulls": 6318
+      }
+    },
+    "share_of_grand_total_pct": {
+      "values": 14491,
+      "nulls": 5142
+    },
+    "long_term_share_pct": {
+      "values": 14491,
+      "nulls": 5142
+    },
+    "short_term_share_pct": {
+      "values": 14491,
+      "nulls": 5142
+    },
+    "other_adjustment_usd_mn": {
+      "values": 3075,
+      "nulls": 16558
+    }
+  },
+  "table3_table5": {
+    "latest_month": "2026-06",
+    "tolerance_bn": 0.051,
+    "comparisons": [
+      {
+        "country": "Japan",
+        "country_code": "42609",
+        "month": "2026-06",
+        "table3_bn": 1116.683,
+        "table5_bn": 1116.7,
+        "difference_bn": -0.01700000000005275,
+        "pass": true
+      },
+      {
+        "country": "Japan",
+        "country_code": "42609",
+        "month": "2026-05",
+        "table3_bn": 1143.139,
+        "table5_bn": 1143.1,
+        "difference_bn": 0.03899999999998727,
+        "pass": true
+      },
+      {
+        "country": "Japan",
+        "country_code": "42609",
+        "month": "2026-04",
+        "table3_bn": 1209.889,
+        "table5_bn": 1209.9,
+        "difference_bn": -0.011000000000194632,
+        "pass": true
+      },
+      {
+        "country": "Japan",
+        "country_code": "42609",
+        "month": "2026-03",
+        "table3_bn": 1191.597,
+        "table5_bn": 1191.6,
+        "difference_bn": -0.0029999999999290594,
+        "pass": true
+      },
+      {
+        "country": "Japan",
+        "country_code": "42609",
+        "month": "2026-02",
+        "table3_bn": 1239.286,
+        "table5_bn": 1239.3,
+        "difference_bn": -0.013999999999896318,
+        "pass": true
+      },
+      {
+        "country": "Japan",
+        "country_code": "42609",
+        "month": "2026-01",
+        "table3_bn": 1225.291,
+        "table5_bn": 1225.3,
+        "difference_bn": -0.009000000000014552,
+        "pass": true
+      },
+      {
+        "country": "Japan",
+        "country_code": "42609",
+        "month": "2025-12",
+        "table3_bn": 1185.528,
+        "table5_bn": 1185.5,
+        "difference_bn": 0.02800000000002001,
+        "pass": true
+      },
+      {
+        "country": "Japan",
+        "country_code": "42609",
+        "month": "2025-11",
+        "table3_bn": 1202.693,
+        "table5_bn": 1202.7,
+        "difference_bn": -0.007000000000061846,
+        "pass": true
+      },
+      {
+        "country": "Japan",
+        "country_code": "42609",
+        "month": "2025-10",
+        "table3_bn": 1199.967,
+        "table5_bn": 1200,
+        "difference_bn": -0.032999999999901775,
+        "pass": true
+      },
+      {
+        "country": "Japan",
+        "country_code": "42609",
+        "month": "2025-09",
+        "table3_bn": 1189.258,
+        "table5_bn": 1189.3,
+        "difference_bn": -0.041999999999916326,
+        "pass": true
+      },
+      {
+        "country": "Japan",
+        "country_code": "42609",
+        "month": "2025-08",
+        "table3_bn": 1183.904,
+        "table5_bn": 1183.9,
+        "difference_bn": 0.0039999999999054126,
+        "pass": true
+      },
+      {
+        "country": "Japan",
+        "country_code": "42609",
+        "month": "2025-07",
+        "table3_bn": 1155.439,
+        "table5_bn": 1155.4,
+        "difference_bn": 0.03899999999998727,
+        "pass": true
+      },
+      {
+        "country": "Japan",
+        "country_code": "42609",
+        "month": "2025-06",
+        "table3_bn": 1154.765,
+        "table5_bn": 1154.8,
+        "difference_bn": -0.03499999999985448,
+        "pass": true
+      },
+      {
+        "country": "United Kingdom",
+        "country_code": "13005",
+        "month": "2026-06",
+        "table3_bn": 939.861,
+        "table5_bn": 939.9,
+        "difference_bn": -0.03899999999998727,
+        "pass": true
+      },
+      {
+        "country": "United Kingdom",
+        "country_code": "13005",
+        "month": "2026-05",
+        "table3_bn": 948.593,
+        "table5_bn": 948.6,
+        "difference_bn": -0.007000000000061846,
+        "pass": true
+      },
+      {
+        "country": "United Kingdom",
+        "country_code": "13005",
+        "month": "2026-04",
+        "table3_bn": 937.523,
+        "table5_bn": 937.5,
+        "difference_bn": 0.023000000000024556,
+        "pass": true
+      },
+      {
+        "country": "United Kingdom",
+        "country_code": "13005",
+        "month": "2026-03",
+        "table3_bn": 927.134,
+        "table5_bn": 927.1,
+        "difference_bn": 0.033999999999991815,
+        "pass": true
+      },
+      {
+        "country": "United Kingdom",
+        "country_code": "13005",
+        "month": "2026-02",
+        "table3_bn": 897.338,
+        "table5_bn": 897.3,
+        "difference_bn": 0.038000000000010914,
+        "pass": true
+      },
+      {
+        "country": "United Kingdom",
+        "country_code": "13005",
+        "month": "2026-01",
+        "table3_bn": 879.755,
+        "table5_bn": 879.8,
+        "difference_bn": -0.04499999999995907,
+        "pass": true
+      },
+      {
+        "country": "United Kingdom",
+        "country_code": "13005",
+        "month": "2025-12",
+        "table3_bn": 863.123,
+        "table5_bn": 863.1,
+        "difference_bn": 0.023000000000024556,
+        "pass": true
+      },
+      {
+        "country": "United Kingdom",
+        "country_code": "13005",
+        "month": "2025-11",
+        "table3_bn": 879.817,
+        "table5_bn": 879.8,
+        "difference_bn": 0.01700000000005275,
+        "pass": true
+      },
+      {
+        "country": "United Kingdom",
+        "country_code": "13005",
+        "month": "2025-10",
+        "table3_bn": 875.409,
+        "table5_bn": 875.4,
+        "difference_bn": 0.009000000000014552,
+        "pass": true
+      },
+      {
+        "country": "United Kingdom",
+        "country_code": "13005",
+        "month": "2025-09",
+        "table3_bn": 862.461,
+        "table5_bn": 862.5,
+        "difference_bn": -0.03899999999998727,
+        "pass": true
+      },
+      {
+        "country": "United Kingdom",
+        "country_code": "13005",
+        "month": "2025-08",
+        "table3_bn": 901.272,
+        "table5_bn": 901.3,
+        "difference_bn": -0.027999999999906322,
+        "pass": true
+      },
+      {
+        "country": "United Kingdom",
+        "country_code": "13005",
+        "month": "2025-07",
+        "table3_bn": 895.928,
+        "table5_bn": 895.9,
+        "difference_bn": 0.02800000000002001,
+        "pass": true
+      },
+      {
+        "country": "United Kingdom",
+        "country_code": "13005",
+        "month": "2025-06",
+        "table3_bn": 855.602,
+        "table5_bn": 855.6,
+        "difference_bn": 0.0019999999999527063,
+        "pass": true
+      },
+      {
+        "country": "China, Mainland",
+        "country_code": "41408",
+        "month": "2026-06",
+        "table3_bn": 633.381,
+        "table5_bn": 633.4,
+        "difference_bn": -0.019000000000005457,
+        "pass": true
+      },
+      {
+        "country": "China, Mainland",
+        "country_code": "41408",
+        "month": "2026-05",
+        "table3_bn": 659.282,
+        "table5_bn": 659.3,
+        "difference_bn": -0.017999999999915417,
+        "pass": true
+      },
+      {
+        "country": "China, Mainland",
+        "country_code": "41408",
+        "month": "2026-04",
+        "table3_bn": 651.072,
+        "table5_bn": 651.1,
+        "difference_bn": -0.02800000000002001,
+        "pass": true
+      },
+      {
+        "country": "China, Mainland",
+        "country_code": "41408",
+        "month": "2026-03",
+        "table3_bn": 653.261,
+        "table5_bn": 653.3,
+        "difference_bn": -0.03899999999998727,
+        "pass": true
+      },
+      {
+        "country": "China, Mainland",
+        "country_code": "41408",
+        "month": "2026-02",
+        "table3_bn": 694.207,
+        "table5_bn": 694.2,
+        "difference_bn": 0.006999999999948159,
+        "pass": true
+      },
+      {
+        "country": "China, Mainland",
+        "country_code": "41408",
+        "month": "2026-01",
+        "table3_bn": 695.344,
+        "table5_bn": 695.3,
+        "difference_bn": 0.044000000000096406,
+        "pass": true
+      },
+      {
+        "country": "China, Mainland",
+        "country_code": "41408",
+        "month": "2025-12",
+        "table3_bn": 684.398,
+        "table5_bn": 684.4,
+        "difference_bn": -0.0019999999999527063,
+        "pass": true
+      },
+      {
+        "country": "China, Mainland",
+        "country_code": "41408",
+        "month": "2025-11",
+        "table3_bn": 683.862,
+        "table5_bn": 683.9,
+        "difference_bn": -0.038000000000010914,
+        "pass": true
+      },
+      {
+        "country": "China, Mainland",
+        "country_code": "41408",
+        "month": "2025-10",
+        "table3_bn": 687.71,
+        "table5_bn": 687.7,
+        "difference_bn": 0.009999999999990905,
+        "pass": true
+      },
+      {
+        "country": "China, Mainland",
+        "country_code": "41408",
+        "month": "2025-09",
+        "table3_bn": 699.205,
+        "table5_bn": 699.2,
+        "difference_bn": 0.0049999999999954525,
+        "pass": true
+      },
+      {
+        "country": "China, Mainland",
+        "country_code": "41408",
+        "month": "2025-08",
+        "table3_bn": 699.698,
+        "table5_bn": 699.7,
+        "difference_bn": -0.002000000000066393,
+        "pass": true
+      },
+      {
+        "country": "China, Mainland",
+        "country_code": "41408",
+        "month": "2025-07",
+        "table3_bn": 695.623,
+        "table5_bn": 695.6,
+        "difference_bn": 0.023000000000024556,
+        "pass": true
+      },
+      {
+        "country": "China, Mainland",
+        "country_code": "41408",
+        "month": "2025-06",
+        "table3_bn": 731.402,
+        "table5_bn": 731.4,
+        "difference_bn": 0.002000000000066393,
+        "pass": true
+      },
+      {
+        "country": "Belgium",
+        "country_code": "10251",
+        "month": "2026-06",
+        "table3_bn": 482.466,
+        "table5_bn": 482.5,
+        "difference_bn": -0.033999999999991815,
+        "pass": true
+      },
+      {
+        "country": "Belgium",
+        "country_code": "10251",
+        "month": "2026-05",
+        "table3_bn": 472.03,
+        "table5_bn": 472,
+        "difference_bn": 0.029999999999972715,
+        "pass": true
+      },
+      {
+        "country": "Belgium",
+        "country_code": "10251",
+        "month": "2026-04",
+        "table3_bn": 459.89,
+        "table5_bn": 459.9,
+        "difference_bn": -0.009999999999990905,
+        "pass": true
+      },
+      {
+        "country": "Belgium",
+        "country_code": "10251",
+        "month": "2026-03",
+        "table3_bn": 454.026,
+        "table5_bn": 454,
+        "difference_bn": 0.02600000000001046,
+        "pass": true
+      },
+      {
+        "country": "Belgium",
+        "country_code": "10251",
+        "month": "2026-02",
+        "table3_bn": 454.7,
+        "table5_bn": 454.7,
+        "difference_bn": 0,
+        "pass": true
+      },
+      {
+        "country": "Belgium",
+        "country_code": "10251",
+        "month": "2026-01",
+        "table3_bn": 450.985,
+        "table5_bn": 451,
+        "difference_bn": -0.014999999999986358,
+        "pass": true
+      },
+      {
+        "country": "Belgium",
+        "country_code": "10251",
+        "month": "2025-12",
+        "table3_bn": 477.289,
+        "table5_bn": 477.3,
+        "difference_bn": -0.011000000000024102,
+        "pass": true
+      },
+      {
+        "country": "Belgium",
+        "country_code": "10251",
+        "month": "2025-11",
+        "table3_bn": 481.026,
+        "table5_bn": 481,
+        "difference_bn": 0.02600000000001046,
+        "pass": true
+      },
+      {
+        "country": "Belgium",
+        "country_code": "10251",
+        "month": "2025-10",
+        "table3_bn": 465.502,
+        "table5_bn": 465.5,
+        "difference_bn": 0.0020000000000095497,
+        "pass": true
+      },
+      {
+        "country": "Belgium",
+        "country_code": "10251",
+        "month": "2025-09",
+        "table3_bn": 463.587,
+        "table5_bn": 463.6,
+        "difference_bn": -0.013000000000033651,
+        "pass": true
+      },
+      {
+        "country": "Belgium",
+        "country_code": "10251",
+        "month": "2025-08",
+        "table3_bn": 451.093,
+        "table5_bn": 451.1,
+        "difference_bn": -0.007000000000005002,
+        "pass": true
+      },
+      {
+        "country": "Belgium",
+        "country_code": "10251",
+        "month": "2025-07",
+        "table3_bn": 425.383,
+        "table5_bn": 425.4,
+        "difference_bn": -0.016999999999995907,
+        "pass": true
+      },
+      {
+        "country": "Belgium",
+        "country_code": "10251",
+        "month": "2025-06",
+        "table3_bn": 430.288,
+        "table5_bn": 430.3,
+        "difference_bn": -0.012000000000000455,
+        "pass": true
+      },
+      {
+        "country": "Canada",
+        "country_code": "29998",
+        "month": "2026-06",
+        "table3_bn": 459.582,
+        "table5_bn": 459.6,
+        "difference_bn": -0.018000000000029104,
+        "pass": true
+      },
+      {
+        "country": "Canada",
+        "country_code": "29998",
+        "month": "2026-05",
+        "table3_bn": 435.753,
+        "table5_bn": 435.8,
+        "difference_bn": -0.047000000000025466,
+        "pass": true
+      },
+      {
+        "country": "Canada",
+        "country_code": "29998",
+        "month": "2026-04",
+        "table3_bn": 397.075,
+        "table5_bn": 397.1,
+        "difference_bn": -0.025000000000034106,
+        "pass": true
+      },
+      {
+        "country": "Canada",
+        "country_code": "29998",
+        "month": "2026-03",
+        "table3_bn": 439.631,
+        "table5_bn": 439.6,
+        "difference_bn": 0.03099999999994907,
+        "pass": true
+      },
+      {
+        "country": "Canada",
+        "country_code": "29998",
+        "month": "2026-02",
+        "table3_bn": 446.351,
+        "table5_bn": 446.4,
+        "difference_bn": -0.04899999999997817,
+        "pass": true
+      },
+      {
+        "country": "Canada",
+        "country_code": "29998",
+        "month": "2026-01",
+        "table3_bn": 395.817,
+        "table5_bn": 395.8,
+        "difference_bn": 0.016999999999995907,
+        "pass": true
+      },
+      {
+        "country": "Canada",
+        "country_code": "29998",
+        "month": "2025-12",
+        "table3_bn": 468.284,
+        "table5_bn": 468.3,
+        "difference_bn": -0.016000000000019554,
+        "pass": true
+      },
+      {
+        "country": "Canada",
+        "country_code": "29998",
+        "month": "2025-11",
+        "table3_bn": 472.446,
+        "table5_bn": 472.4,
+        "difference_bn": 0.04600000000004911,
+        "pass": true
+      },
+      {
+        "country": "Canada",
+        "country_code": "29998",
+        "month": "2025-10",
+        "table3_bn": 419.033,
+        "table5_bn": 419,
+        "difference_bn": 0.03300000000001546,
+        "pass": true
+      },
+      {
+        "country": "Canada",
+        "country_code": "29998",
+        "month": "2025-09",
+        "table3_bn": 476.08,
+        "table5_bn": 476.1,
+        "difference_bn": -0.020000000000038654,
+        "pass": true
+      },
+      {
+        "country": "Canada",
+        "country_code": "29998",
+        "month": "2025-08",
+        "table3_bn": 443.99,
+        "table5_bn": 444,
+        "difference_bn": -0.009999999999990905,
+        "pass": true
+      },
+      {
+        "country": "Canada",
+        "country_code": "29998",
+        "month": "2025-07",
+        "table3_bn": 381.767,
+        "table5_bn": 381.8,
+        "difference_bn": -0.03300000000001546,
+        "pass": true
+      },
+      {
+        "country": "Canada",
+        "country_code": "29998",
+        "month": "2025-06",
+        "table3_bn": 438.89,
+        "table5_bn": 438.9,
+        "difference_bn": -0.009999999999990905,
+        "pass": true
+      },
+      {
+        "country": "Cayman Islands",
+        "country_code": "36137",
+        "month": "2026-06",
+        "table3_bn": 453.064,
+        "table5_bn": 453.1,
+        "difference_bn": -0.036000000000001364,
+        "pass": true
+      },
+      {
+        "country": "Cayman Islands",
+        "country_code": "36137",
+        "month": "2026-05",
+        "table3_bn": 471.263,
+        "table5_bn": 471.3,
+        "difference_bn": -0.03700000000003456,
+        "pass": true
+      },
+      {
+        "country": "Cayman Islands",
+        "country_code": "36137",
+        "month": "2026-04",
+        "table3_bn": 471.636,
+        "table5_bn": 471.6,
+        "difference_bn": 0.036000000000001364,
+        "pass": true
+      },
+      {
+        "country": "Cayman Islands",
+        "country_code": "36137",
+        "month": "2026-03",
+        "table3_bn": 460.094,
+        "table5_bn": 460.1,
+        "difference_bn": -0.006000000000028649,
+        "pass": true
+      },
+      {
+        "country": "Cayman Islands",
+        "country_code": "36137",
+        "month": "2026-02",
+        "table3_bn": 443.361,
+        "table5_bn": 443.4,
+        "difference_bn": -0.03899999999998727,
+        "pass": true
+      },
+      {
+        "country": "Cayman Islands",
+        "country_code": "36137",
+        "month": "2026-01",
+        "table3_bn": 433.178,
+        "table5_bn": 433.2,
+        "difference_bn": -0.02199999999999136,
+        "pass": true
+      },
+      {
+        "country": "Cayman Islands",
+        "country_code": "36137",
+        "month": "2025-12",
+        "table3_bn": 421.571,
+        "table5_bn": 421.6,
+        "difference_bn": -0.028999999999996362,
+        "pass": true
+      },
+      {
+        "country": "Cayman Islands",
+        "country_code": "36137",
+        "month": "2025-11",
+        "table3_bn": 427.557,
+        "table5_bn": 427.6,
+        "difference_bn": -0.043000000000006366,
+        "pass": true
+      },
+      {
+        "country": "Cayman Islands",
+        "country_code": "36137",
+        "month": "2025-10",
+        "table3_bn": 418.524,
+        "table5_bn": 418.5,
+        "difference_bn": 0.02400000000000091,
+        "pass": true
+      },
+      {
+        "country": "Cayman Islands",
+        "country_code": "36137",
+        "month": "2025-09",
+        "table3_bn": 426.832,
+        "table5_bn": 426.8,
+        "difference_bn": 0.031999999999982265,
+        "pass": true
+      },
+      {
+        "country": "Cayman Islands",
+        "country_code": "36137",
+        "month": "2025-08",
+        "table3_bn": 410.51,
+        "table5_bn": 410.5,
+        "difference_bn": 0.009999999999990905,
+        "pass": true
+      },
+      {
+        "country": "Cayman Islands",
+        "country_code": "36137",
+        "month": "2025-07",
+        "table3_bn": 436.779,
+        "table5_bn": 436.8,
+        "difference_bn": -0.021000000000015007,
+        "pass": true
+      },
+      {
+        "country": "Cayman Islands",
+        "country_code": "36137",
+        "month": "2025-06",
+        "table3_bn": 440.905,
+        "table5_bn": 440.9,
+        "difference_bn": 0.0049999999999954525,
+        "pass": true
+      },
+      {
+        "country": "Luxembourg",
+        "country_code": "11703",
+        "month": "2026-06",
+        "table3_bn": 434.181,
+        "table5_bn": 434.2,
+        "difference_bn": -0.019000000000005457,
+        "pass": true
+      },
+      {
+        "country": "Luxembourg",
+        "country_code": "11703",
+        "month": "2026-05",
+        "table3_bn": 436.038,
+        "table5_bn": 436,
+        "difference_bn": 0.038000000000010914,
+        "pass": true
+      },
+      {
+        "country": "Luxembourg",
+        "country_code": "11703",
+        "month": "2026-04",
+        "table3_bn": 431.128,
+        "table5_bn": 431.1,
+        "difference_bn": 0.027999999999963165,
+        "pass": true
+      },
+      {
+        "country": "Luxembourg",
+        "country_code": "11703",
+        "month": "2026-03",
+        "table3_bn": 432.424,
+        "table5_bn": 432.4,
+        "difference_bn": 0.02400000000000091,
+        "pass": true
+      },
+      {
+        "country": "Luxembourg",
+        "country_code": "11703",
+        "month": "2026-02",
+        "table3_bn": 445.972,
+        "table5_bn": 446,
+        "difference_bn": -0.02800000000002001,
+        "pass": true
+      },
+      {
+        "country": "Luxembourg",
+        "country_code": "11703",
+        "month": "2026-01",
+        "table3_bn": 446.152,
+        "table5_bn": 446.2,
+        "difference_bn": -0.04800000000000182,
+        "pass": true
+      },
+      {
+        "country": "Luxembourg",
+        "country_code": "11703",
+        "month": "2025-12",
+        "table3_bn": 434.019,
+        "table5_bn": 434,
+        "difference_bn": 0.019000000000005457,
+        "pass": true
+      },
+      {
+        "country": "Luxembourg",
+        "country_code": "11703",
+        "month": "2025-11",
+        "table3_bn": 424.713,
+        "table5_bn": 424.7,
+        "difference_bn": 0.013000000000033651,
+        "pass": true
+      },
+      {
+        "country": "Luxembourg",
+        "country_code": "11703",
+        "month": "2025-10",
+        "table3_bn": 417.749,
+        "table5_bn": 417.7,
+        "difference_bn": 0.049000000000035016,
+        "pass": true
+      },
+      {
+        "country": "Luxembourg",
+        "country_code": "11703",
+        "month": "2025-09",
+        "table3_bn": 419.896,
+        "table5_bn": 419.9,
+        "difference_bn": -0.003999999999962256,
+        "pass": true
+      },
+      {
+        "country": "Luxembourg",
+        "country_code": "11703",
+        "month": "2025-08",
+        "table3_bn": 409.918,
+        "table5_bn": 409.9,
+        "difference_bn": 0.018000000000029104,
+        "pass": true
+      },
+      {
+        "country": "Luxembourg",
+        "country_code": "11703",
+        "month": "2025-07",
+        "table3_bn": 403.817,
+        "table5_bn": 403.8,
+        "difference_bn": 0.016999999999995907,
+        "pass": true
+      },
+      {
+        "country": "Luxembourg",
+        "country_code": "11703",
+        "month": "2025-06",
+        "table3_bn": 403.225,
+        "table5_bn": 403.2,
+        "difference_bn": 0.025000000000034106,
+        "pass": true
+      },
+      {
+        "country": "France",
+        "country_code": "10804",
+        "month": "2026-06",
+        "table3_bn": 389.938,
+        "table5_bn": 389.9,
+        "difference_bn": 0.038000000000010914,
+        "pass": true
+      },
+      {
+        "country": "France",
+        "country_code": "10804",
+        "month": "2026-05",
+        "table3_bn": 393.1,
+        "table5_bn": 393.1,
+        "difference_bn": 0,
+        "pass": true
+      },
+      {
+        "country": "France",
+        "country_code": "10804",
+        "month": "2026-04",
+        "table3_bn": 393.298,
+        "table5_bn": 393.3,
+        "difference_bn": -0.0020000000000095497,
+        "pass": true
+      },
+      {
+        "country": "France",
+        "country_code": "10804",
+        "month": "2026-03",
+        "table3_bn": 392.972,
+        "table5_bn": 393,
+        "difference_bn": -0.02800000000002001,
+        "pass": true
+      },
+      {
+        "country": "France",
+        "country_code": "10804",
+        "month": "2026-02",
+        "table3_bn": 395.107,
+        "table5_bn": 395.1,
+        "difference_bn": 0.007000000000005002,
+        "pass": true
+      },
+      {
+        "country": "France",
+        "country_code": "10804",
+        "month": "2026-01",
+        "table3_bn": 380.467,
+        "table5_bn": 380.5,
+        "difference_bn": -0.03300000000001546,
+        "pass": true
+      },
+      {
+        "country": "France",
+        "country_code": "10804",
+        "month": "2025-12",
+        "table3_bn": 368.902,
+        "table5_bn": 368.9,
+        "difference_bn": 0.0020000000000095497,
+        "pass": true
+      },
+      {
+        "country": "France",
+        "country_code": "10804",
+        "month": "2025-11",
+        "table3_bn": 376.083,
+        "table5_bn": 376.1,
+        "difference_bn": -0.016999999999995907,
+        "pass": true
+      },
+      {
+        "country": "France",
+        "country_code": "10804",
+        "month": "2025-10",
+        "table3_bn": 390.226,
+        "table5_bn": 390.2,
+        "difference_bn": 0.02600000000001046,
+        "pass": true
+      },
+      {
+        "country": "France",
+        "country_code": "10804",
+        "month": "2025-09",
+        "table3_bn": 375.484,
+        "table5_bn": 375.5,
+        "difference_bn": -0.016000000000019554,
+        "pass": true
+      },
+      {
+        "country": "France",
+        "country_code": "10804",
+        "month": "2025-08",
+        "table3_bn": 389.13,
+        "table5_bn": 389.1,
+        "difference_bn": 0.029999999999972715,
+        "pass": true
+      },
+      {
+        "country": "France",
+        "country_code": "10804",
+        "month": "2025-07",
+        "table3_bn": 390.972,
+        "table5_bn": 391,
+        "difference_bn": -0.02800000000002001,
+        "pass": true
+      },
+      {
+        "country": "France",
+        "country_code": "10804",
+        "month": "2025-06",
+        "table3_bn": 373.784,
+        "table5_bn": 373.8,
+        "difference_bn": -0.016000000000019554,
+        "pass": true
+      },
+      {
+        "country": "Ireland",
+        "country_code": "11401",
+        "month": "2026-06",
+        "table3_bn": 353.501,
+        "table5_bn": 353.5,
+        "difference_bn": 0.0009999999999763531,
+        "pass": true
+      },
+      {
+        "country": "Ireland",
+        "country_code": "11401",
+        "month": "2026-05",
+        "table3_bn": 357.213,
+        "table5_bn": 357.2,
+        "difference_bn": 0.013000000000033651,
+        "pass": true
+      },
+      {
+        "country": "Ireland",
+        "country_code": "11401",
+        "month": "2026-04",
+        "table3_bn": 345.253,
+        "table5_bn": 345.3,
+        "difference_bn": -0.047000000000025466,
+        "pass": true
+      },
+      {
+        "country": "Ireland",
+        "country_code": "11401",
+        "month": "2026-03",
+        "table3_bn": 355.925,
+        "table5_bn": 355.9,
+        "difference_bn": 0.025000000000034106,
+        "pass": true
+      },
+      {
+        "country": "Ireland",
+        "country_code": "11401",
+        "month": "2026-02",
+        "table3_bn": 350.797,
+        "table5_bn": 350.8,
+        "difference_bn": -0.002999999999985903,
+        "pass": true
+      },
+      {
+        "country": "Ireland",
+        "country_code": "11401",
+        "month": "2026-01",
+        "table3_bn": 342.136,
+        "table5_bn": 342.1,
+        "difference_bn": 0.036000000000001364,
+        "pass": true
+      },
+      {
+        "country": "Ireland",
+        "country_code": "11401",
+        "month": "2025-12",
+        "table3_bn": 341.04,
+        "table5_bn": 341,
+        "difference_bn": 0.040000000000020464,
+        "pass": true
+      },
+      {
+        "country": "Ireland",
+        "country_code": "11401",
+        "month": "2025-11",
+        "table3_bn": 340.29,
+        "table5_bn": 340.3,
+        "difference_bn": -0.009999999999990905,
+        "pass": true
+      },
+      {
+        "country": "Ireland",
+        "country_code": "11401",
+        "month": "2025-10",
+        "table3_bn": 339.865,
+        "table5_bn": 339.9,
+        "difference_bn": -0.03499999999996817,
+        "pass": true
+      },
+      {
+        "country": "Ireland",
+        "country_code": "11401",
+        "month": "2025-09",
+        "table3_bn": 340.036,
+        "table5_bn": 340,
+        "difference_bn": 0.036000000000001364,
+        "pass": true
+      },
+      {
+        "country": "Ireland",
+        "country_code": "11401",
+        "month": "2025-08",
+        "table3_bn": 339.958,
+        "table5_bn": 340,
+        "difference_bn": -0.04199999999997317,
+        "pass": true
+      },
+      {
+        "country": "Ireland",
+        "country_code": "11401",
+        "month": "2025-07",
+        "table3_bn": 320.19,
+        "table5_bn": 320.2,
+        "difference_bn": -0.009999999999990905,
+        "pass": true
+      },
+      {
+        "country": "Ireland",
+        "country_code": "11401",
+        "month": "2025-06",
+        "table3_bn": 310.164,
+        "table5_bn": 310.2,
+        "difference_bn": -0.036000000000001364,
+        "pass": true
+      },
+      {
+        "country": "Taiwan",
+        "country_code": "46302",
+        "month": "2026-06",
+        "table3_bn": 302.452,
+        "table5_bn": 302.5,
+        "difference_bn": -0.04800000000000182,
+        "pass": true
+      },
+      {
+        "country": "Taiwan",
+        "country_code": "46302",
+        "month": "2026-05",
+        "table3_bn": 306.006,
+        "table5_bn": 306,
+        "difference_bn": 0.005999999999971806,
+        "pass": true
+      },
+      {
+        "country": "Taiwan",
+        "country_code": "46302",
+        "month": "2026-04",
+        "table3_bn": 300.912,
+        "table5_bn": 300.9,
+        "difference_bn": 0.012000000000000455,
+        "pass": true
+      },
+      {
+        "country": "Taiwan",
+        "country_code": "46302",
+        "month": "2026-03",
+        "table3_bn": 300.794,
+        "table5_bn": 300.8,
+        "difference_bn": -0.006000000000028649,
+        "pass": true
+      },
+      {
+        "country": "Taiwan",
+        "country_code": "46302",
+        "month": "2026-02",
+        "table3_bn": 313.537,
+        "table5_bn": 313.5,
+        "difference_bn": 0.03699999999997772,
+        "pass": true
+      },
+      {
+        "country": "Taiwan",
+        "country_code": "46302",
+        "month": "2026-01",
+        "table3_bn": 307.795,
+        "table5_bn": 307.8,
+        "difference_bn": -0.0049999999999954525,
+        "pass": true
+      },
+      {
+        "country": "Taiwan",
+        "country_code": "46302",
+        "month": "2025-12",
+        "table3_bn": 310.553,
+        "table5_bn": 310.6,
+        "difference_bn": -0.047000000000025466,
+        "pass": true
+      },
+      {
+        "country": "Taiwan",
+        "country_code": "46302",
+        "month": "2025-11",
+        "table3_bn": 312.911,
+        "table5_bn": 312.9,
+        "difference_bn": 0.011000000000024102,
+        "pass": true
+      },
+      {
+        "country": "Taiwan",
+        "country_code": "46302",
+        "month": "2025-10",
+        "table3_bn": 309.417,
+        "table5_bn": 309.4,
+        "difference_bn": 0.016999999999995907,
+        "pass": true
+      },
+      {
+        "country": "Taiwan",
+        "country_code": "46302",
+        "month": "2025-09",
+        "table3_bn": 312.522,
+        "table5_bn": 312.5,
+        "difference_bn": 0.02199999999999136,
+        "pass": true
+      },
+      {
+        "country": "Taiwan",
+        "country_code": "46302",
+        "month": "2025-08",
+        "table3_bn": 313.375,
+        "table5_bn": 313.4,
+        "difference_bn": -0.024999999999977263,
+        "pass": true
+      },
+      {
+        "country": "Taiwan",
+        "country_code": "46302",
+        "month": "2025-07",
+        "table3_bn": 308.824,
+        "table5_bn": 308.8,
+        "difference_bn": 0.02400000000000091,
+        "pass": true
+      },
+      {
+        "country": "Taiwan",
+        "country_code": "46302",
+        "month": "2025-06",
+        "table3_bn": 307.203,
+        "table5_bn": 307.2,
+        "difference_bn": 0.002999999999985903,
+        "pass": true
+      },
+      {
+        "country": "Switzerland",
+        "country_code": "12688",
+        "month": "2026-06",
+        "table3_bn": 284.939,
+        "table5_bn": 284.9,
+        "difference_bn": 0.03900000000004411,
+        "pass": true
+      },
+      {
+        "country": "Switzerland",
+        "country_code": "12688",
+        "month": "2026-05",
+        "table3_bn": 281.111,
+        "table5_bn": 281.1,
+        "difference_bn": 0.010999999999967258,
+        "pass": true
+      },
+      {
+        "country": "Switzerland",
+        "country_code": "12688",
+        "month": "2026-04",
+        "table3_bn": 288.631,
+        "table5_bn": 288.6,
+        "difference_bn": 0.03099999999994907,
+        "pass": true
+      },
+      {
+        "country": "Switzerland",
+        "country_code": "12688",
+        "month": "2026-03",
+        "table3_bn": 286.368,
+        "table5_bn": 286.4,
+        "difference_bn": -0.031999999999982265,
+        "pass": true
+      },
+      {
+        "country": "Switzerland",
+        "country_code": "12688",
+        "month": "2026-02",
+        "table3_bn": 286.651,
+        "table5_bn": 286.7,
+        "difference_bn": -0.04899999999997817,
+        "pass": true
+      },
+      {
+        "country": "Switzerland",
+        "country_code": "12688",
+        "month": "2026-01",
+        "table3_bn": 289.191,
+        "table5_bn": 289.2,
+        "difference_bn": -0.009000000000014552,
+        "pass": true
+      },
+      {
+        "country": "Switzerland",
+        "country_code": "12688",
+        "month": "2025-12",
+        "table3_bn": 294.093,
+        "table5_bn": 294.1,
+        "difference_bn": -0.007000000000005002,
+        "pass": true
+      },
+      {
+        "country": "Switzerland",
+        "country_code": "12688",
+        "month": "2025-11",
+        "table3_bn": 300.361,
+        "table5_bn": 300.4,
+        "difference_bn": -0.03899999999998727,
+        "pass": true
+      },
+      {
+        "country": "Switzerland",
+        "country_code": "12688",
+        "month": "2025-10",
+        "table3_bn": 302.022,
+        "table5_bn": 302,
+        "difference_bn": 0.02199999999999136,
+        "pass": true
+      },
+      {
+        "country": "Switzerland",
+        "country_code": "12688",
+        "month": "2025-09",
+        "table3_bn": 301.816,
+        "table5_bn": 301.8,
+        "difference_bn": 0.01599999999996271,
+        "pass": true
+      },
+      {
+        "country": "Switzerland",
+        "country_code": "12688",
+        "month": "2025-08",
+        "table3_bn": 303.017,
+        "table5_bn": 303,
+        "difference_bn": 0.016999999999995907,
+        "pass": true
+      },
+      {
+        "country": "Switzerland",
+        "country_code": "12688",
+        "month": "2025-07",
+        "table3_bn": 303.194,
+        "table5_bn": 303.2,
+        "difference_bn": -0.005999999999971806,
+        "pass": true
+      },
+      {
+        "country": "Switzerland",
+        "country_code": "12688",
+        "month": "2025-06",
+        "table3_bn": 300.609,
+        "table5_bn": 300.6,
+        "difference_bn": 0.008999999999957708,
+        "pass": true
+      },
+      {
+        "country": "Singapore",
+        "country_code": "46019",
+        "month": "2026-06",
+        "table3_bn": 284.409,
+        "table5_bn": 284.4,
+        "difference_bn": 0.009000000000014552,
+        "pass": true
+      },
+      {
+        "country": "Singapore",
+        "country_code": "46019",
+        "month": "2026-05",
+        "table3_bn": 278.022,
+        "table5_bn": 278,
+        "difference_bn": 0.02199999999999136,
+        "pass": true
+      },
+      {
+        "country": "Singapore",
+        "country_code": "46019",
+        "month": "2026-04",
+        "table3_bn": 277.483,
+        "table5_bn": 277.5,
+        "difference_bn": -0.016999999999995907,
+        "pass": true
+      },
+      {
+        "country": "Singapore",
+        "country_code": "46019",
+        "month": "2026-03",
+        "table3_bn": 274.323,
+        "table5_bn": 274.3,
+        "difference_bn": 0.022999999999967713,
+        "pass": true
+      },
+      {
+        "country": "Singapore",
+        "country_code": "46019",
+        "month": "2026-02",
+        "table3_bn": 279.973,
+        "table5_bn": 280,
+        "difference_bn": -0.026999999999986812,
+        "pass": true
+      },
+      {
+        "country": "Singapore",
+        "country_code": "46019",
+        "month": "2026-01",
+        "table3_bn": 273.409,
+        "table5_bn": 273.4,
+        "difference_bn": 0.009000000000014552,
+        "pass": true
+      },
+      {
+        "country": "Singapore",
+        "country_code": "46019",
+        "month": "2025-12",
+        "table3_bn": 278.351,
+        "table5_bn": 278.4,
+        "difference_bn": -0.04899999999997817,
+        "pass": true
+      },
+      {
+        "country": "Singapore",
+        "country_code": "46019",
+        "month": "2025-11",
+        "table3_bn": 272.219,
+        "table5_bn": 272.2,
+        "difference_bn": 0.019000000000005457,
+        "pass": true
+      },
+      {
+        "country": "Singapore",
+        "country_code": "46019",
+        "month": "2025-10",
+        "table3_bn": 272.254,
+        "table5_bn": 272.3,
+        "difference_bn": -0.04599999999999227,
+        "pass": true
+      },
+      {
+        "country": "Singapore",
+        "country_code": "46019",
+        "month": "2025-09",
+        "table3_bn": 258.588,
+        "table5_bn": 258.6,
+        "difference_bn": -0.012000000000000455,
+        "pass": true
+      },
+      {
+        "country": "Singapore",
+        "country_code": "46019",
+        "month": "2025-08",
+        "table3_bn": 260.952,
+        "table5_bn": 261,
+        "difference_bn": -0.04800000000000182,
+        "pass": true
+      },
+      {
+        "country": "Singapore",
+        "country_code": "46019",
+        "month": "2025-07",
+        "table3_bn": 252.403,
+        "table5_bn": 252.4,
+        "difference_bn": 0.002999999999985903,
+        "pass": true
+      },
+      {
+        "country": "Singapore",
+        "country_code": "46019",
+        "month": "2025-06",
+        "table3_bn": 253.5,
+        "table5_bn": 253.5,
+        "difference_bn": 0,
+        "pass": true
+      },
+      {
+        "country": "Hong Kong",
+        "country_code": "42005",
+        "month": "2026-06",
+        "table3_bn": 255.751,
+        "table5_bn": 255.8,
+        "difference_bn": -0.049000000000006594,
+        "pass": true
+      },
+      {
+        "country": "Hong Kong",
+        "country_code": "42005",
+        "month": "2026-05",
+        "table3_bn": 271.9,
+        "table5_bn": 271.9,
+        "difference_bn": 0,
+        "pass": true
+      },
+      {
+        "country": "Hong Kong",
+        "country_code": "42005",
+        "month": "2026-04",
+        "table3_bn": 269.093,
+        "table5_bn": 269.1,
+        "difference_bn": -0.007000000000005002,
+        "pass": true
+      },
+      {
+        "country": "Hong Kong",
+        "country_code": "42005",
+        "month": "2026-03",
+        "table3_bn": 278.272,
+        "table5_bn": 278.3,
+        "difference_bn": -0.02800000000002001,
+        "pass": true
+      },
+      {
+        "country": "Hong Kong",
+        "country_code": "42005",
+        "month": "2026-02",
+        "table3_bn": 269.179,
+        "table5_bn": 269.2,
+        "difference_bn": -0.021000000000015007,
+        "pass": true
+      },
+      {
+        "country": "Hong Kong",
+        "country_code": "42005",
+        "month": "2026-01",
+        "table3_bn": 259.877,
+        "table5_bn": 259.9,
+        "difference_bn": -0.022999999999967713,
+        "pass": true
+      },
+      {
+        "country": "Hong Kong",
+        "country_code": "42005",
+        "month": "2025-12",
+        "table3_bn": 268.399,
+        "table5_bn": 268.4,
+        "difference_bn": -0.0009999999999763531,
+        "pass": true
+      },
+      {
+        "country": "Hong Kong",
+        "country_code": "42005",
+        "month": "2025-11",
+        "table3_bn": 256.581,
+        "table5_bn": 256.6,
+        "difference_bn": -0.019000000000005457,
+        "pass": true
+      },
+      {
+        "country": "Hong Kong",
+        "country_code": "42005",
+        "month": "2025-10",
+        "table3_bn": 251.962,
+        "table5_bn": 252,
+        "difference_bn": -0.038000000000010914,
+        "pass": true
+      },
+      {
+        "country": "Hong Kong",
+        "country_code": "42005",
+        "month": "2025-09",
+        "table3_bn": 238.874,
+        "table5_bn": 238.9,
+        "difference_bn": -0.02600000000001046,
+        "pass": true
+      },
+      {
+        "country": "Hong Kong",
+        "country_code": "42005",
+        "month": "2025-08",
+        "table3_bn": 251.9,
+        "table5_bn": 251.9,
+        "difference_bn": 0,
+        "pass": true
+      },
+      {
+        "country": "Hong Kong",
+        "country_code": "42005",
+        "month": "2025-07",
+        "table3_bn": 247.54,
+        "table5_bn": 247.5,
+        "difference_bn": 0.03999999999999204,
+        "pass": true
+      },
+      {
+        "country": "Hong Kong",
+        "country_code": "42005",
+        "month": "2025-06",
+        "table3_bn": 241.84,
+        "table5_bn": 241.8,
+        "difference_bn": 0.03999999999999204,
+        "pass": true
+      },
+      {
+        "country": "Norway",
+        "country_code": "12203",
+        "month": "2026-06",
+        "table3_bn": 203.15,
+        "table5_bn": 203.2,
+        "difference_bn": -0.04999999999998295,
+        "pass": true
+      },
+      {
+        "country": "Norway",
+        "country_code": "12203",
+        "month": "2026-05",
+        "table3_bn": 207.281,
+        "table5_bn": 207.3,
+        "difference_bn": -0.019000000000005457,
+        "pass": true
+      },
+      {
+        "country": "Norway",
+        "country_code": "12203",
+        "month": "2026-04",
+        "table3_bn": 214.7,
+        "table5_bn": 214.7,
+        "difference_bn": 0,
+        "pass": true
+      },
+      {
+        "country": "Norway",
+        "country_code": "12203",
+        "month": "2026-03",
+        "table3_bn": 217.374,
+        "table5_bn": 217.4,
+        "difference_bn": -0.02600000000001046,
+        "pass": true
+      },
+      {
+        "country": "Norway",
+        "country_code": "12203",
+        "month": "2026-02",
+        "table3_bn": 222.957,
+        "table5_bn": 223,
+        "difference_bn": -0.043000000000006366,
+        "pass": true
+      },
+      {
+        "country": "Norway",
+        "country_code": "12203",
+        "month": "2026-01",
+        "table3_bn": 218.758,
+        "table5_bn": 218.8,
+        "difference_bn": -0.04200000000000159,
+        "pass": true
+      },
+      {
+        "country": "Norway",
+        "country_code": "12203",
+        "month": "2025-12",
+        "table3_bn": 208.13,
+        "table5_bn": 208.1,
+        "difference_bn": 0.030000000000001137,
+        "pass": true
+      },
+      {
+        "country": "Norway",
+        "country_code": "12203",
+        "month": "2025-11",
+        "table3_bn": 218.865,
+        "table5_bn": 218.9,
+        "difference_bn": -0.03499999999999659,
+        "pass": true
+      },
+      {
+        "country": "Norway",
+        "country_code": "12203",
+        "month": "2025-10",
+        "table3_bn": 193.72,
+        "table5_bn": 193.7,
+        "difference_bn": 0.020000000000010232,
+        "pass": true
+      },
+      {
+        "country": "Norway",
+        "country_code": "12203",
+        "month": "2025-09",
+        "table3_bn": 215.925,
+        "table5_bn": 215.9,
+        "difference_bn": 0.025000000000005684,
+        "pass": true
+      },
+      {
+        "country": "Norway",
+        "country_code": "12203",
+        "month": "2025-08",
+        "table3_bn": 214.896,
+        "table5_bn": 214.9,
+        "difference_bn": -0.004000000000019099,
+        "pass": true
+      },
+      {
+        "country": "Norway",
+        "country_code": "12203",
+        "month": "2025-07",
+        "table3_bn": 207.958,
+        "table5_bn": 208,
+        "difference_bn": -0.04200000000000159,
+        "pass": true
+      },
+      {
+        "country": "Norway",
+        "country_code": "12203",
+        "month": "2025-06",
+        "table3_bn": 195.125,
+        "table5_bn": 195.1,
+        "difference_bn": 0.025000000000005684,
+        "pass": true
+      },
+      {
+        "country": "India",
+        "country_code": "42102",
+        "month": "2026-06",
+        "table3_bn": 186.39,
+        "table5_bn": 186.4,
+        "difference_bn": -0.010000000000019327,
+        "pass": true
+      },
+      {
+        "country": "India",
+        "country_code": "42102",
+        "month": "2026-05",
+        "table3_bn": 181.291,
+        "table5_bn": 181.3,
+        "difference_bn": -0.009000000000014552,
+        "pass": true
+      },
+      {
+        "country": "India",
+        "country_code": "42102",
+        "month": "2026-04",
+        "table3_bn": 181.008,
+        "table5_bn": 181,
+        "difference_bn": 0.008000000000009777,
+        "pass": true
+      },
+      {
+        "country": "India",
+        "country_code": "42102",
+        "month": "2026-03",
+        "table3_bn": 183.04,
+        "table5_bn": 183,
+        "difference_bn": 0.03999999999999204,
+        "pass": true
+      },
+      {
+        "country": "India",
+        "country_code": "42102",
+        "month": "2026-02",
+        "table3_bn": 190.607,
+        "table5_bn": 190.6,
+        "difference_bn": 0.007000000000005002,
+        "pass": true
+      },
+      {
+        "country": "India",
+        "country_code": "42102",
+        "month": "2026-01",
+        "table3_bn": 190.434,
+        "table5_bn": 190.4,
+        "difference_bn": 0.033999999999991815,
+        "pass": true
+      },
+      {
+        "country": "India",
+        "country_code": "42102",
+        "month": "2025-12",
+        "table3_bn": 182.885,
+        "table5_bn": 182.9,
+        "difference_bn": -0.01500000000001478,
+        "pass": true
+      },
+      {
+        "country": "India",
+        "country_code": "42102",
+        "month": "2025-11",
+        "table3_bn": 186.521,
+        "table5_bn": 186.5,
+        "difference_bn": 0.020999999999986585,
+        "pass": true
+      },
+      {
+        "country": "India",
+        "country_code": "42102",
+        "month": "2025-10",
+        "table3_bn": 190.354,
+        "table5_bn": 190.4,
+        "difference_bn": -0.04599999999999227,
+        "pass": true
+      },
+      {
+        "country": "India",
+        "country_code": "42102",
+        "month": "2025-09",
+        "table3_bn": 202.67,
+        "table5_bn": 202.7,
+        "difference_bn": -0.030000000000001137,
+        "pass": true
+      },
+      {
+        "country": "India",
+        "country_code": "42102",
+        "month": "2025-08",
+        "table3_bn": 219.376,
+        "table5_bn": 219.4,
+        "difference_bn": -0.02400000000000091,
+        "pass": true
+      },
+      {
+        "country": "India",
+        "country_code": "42102",
+        "month": "2025-07",
+        "table3_bn": 219.691,
+        "table5_bn": 219.7,
+        "difference_bn": -0.00899999999998613,
+        "pass": true
+      },
+      {
+        "country": "India",
+        "country_code": "42102",
+        "month": "2025-06",
+        "table3_bn": 227.364,
+        "table5_bn": 227.4,
+        "difference_bn": -0.036000000000001364,
+        "pass": true
+      },
+      {
+        "country": "Brazil",
+        "country_code": "30309",
+        "month": "2026-06",
+        "table3_bn": 168.369,
+        "table5_bn": 168.4,
+        "difference_bn": -0.03100000000000591,
+        "pass": true
+      },
+      {
+        "country": "Brazil",
+        "country_code": "30309",
+        "month": "2026-05",
+        "table3_bn": 168.945,
+        "table5_bn": 168.9,
+        "difference_bn": 0.044999999999987494,
+        "pass": true
+      },
+      {
+        "country": "Brazil",
+        "country_code": "30309",
+        "month": "2026-04",
+        "table3_bn": 168.62,
+        "table5_bn": 168.6,
+        "difference_bn": 0.020000000000010232,
+        "pass": true
+      },
+      {
+        "country": "Brazil",
+        "country_code": "30309",
+        "month": "2026-03",
+        "table3_bn": 168.02,
+        "table5_bn": 168,
+        "difference_bn": 0.020000000000010232,
+        "pass": true
+      },
+      {
+        "country": "Brazil",
+        "country_code": "30309",
+        "month": "2026-02",
+        "table3_bn": 170.555,
+        "table5_bn": 170.6,
+        "difference_bn": -0.044999999999987494,
+        "pass": true
+      },
+      {
+        "country": "Brazil",
+        "country_code": "30309",
+        "month": "2026-01",
+        "table3_bn": 168.035,
+        "table5_bn": 168,
+        "difference_bn": 0.03499999999999659,
+        "pass": true
+      },
+      {
+        "country": "Brazil",
+        "country_code": "30309",
+        "month": "2025-12",
+        "table3_bn": 168.7,
+        "table5_bn": 168.7,
+        "difference_bn": 0,
+        "pass": true
+      },
+      {
+        "country": "Brazil",
+        "country_code": "30309",
+        "month": "2025-11",
+        "table3_bn": 168.186,
+        "table5_bn": 168.2,
+        "difference_bn": -0.013999999999981583,
+        "pass": true
+      },
+      {
+        "country": "Brazil",
+        "country_code": "30309",
+        "month": "2025-10",
+        "table3_bn": 167.8,
+        "table5_bn": 167.8,
+        "difference_bn": 0,
+        "pass": true
+      },
+      {
+        "country": "Brazil",
+        "country_code": "30309",
+        "month": "2025-09",
+        "table3_bn": 172.772,
+        "table5_bn": 172.8,
+        "difference_bn": -0.02800000000002001,
+        "pass": true
+      },
+      {
+        "country": "Brazil",
+        "country_code": "30309",
+        "month": "2025-08",
+        "table3_bn": 184.619,
+        "table5_bn": 184.6,
+        "difference_bn": 0.019000000000005457,
+        "pass": true
+      },
+      {
+        "country": "Brazil",
+        "country_code": "30309",
+        "month": "2025-07",
+        "table3_bn": 201.791,
+        "table5_bn": 201.8,
+        "difference_bn": -0.009000000000014552,
+        "pass": true
+      },
+      {
+        "country": "Brazil",
+        "country_code": "30309",
+        "month": "2025-06",
+        "table3_bn": 215.438,
+        "table5_bn": 215.4,
+        "difference_bn": 0.03799999999998249,
+        "pass": true
+      },
+      {
+        "country": "Saudi Arabia",
+        "country_code": "45608",
+        "month": "2026-06",
+        "table3_bn": 142.546,
+        "table5_bn": 142.5,
+        "difference_bn": 0.04599999999999227,
+        "pass": true
+      },
+      {
+        "country": "Saudi Arabia",
+        "country_code": "45608",
+        "month": "2026-05",
+        "table3_bn": 140.301,
+        "table5_bn": 140.3,
+        "difference_bn": 0.0009999999999763531,
+        "pass": true
+      },
+      {
+        "country": "Saudi Arabia",
+        "country_code": "45608",
+        "month": "2026-04",
+        "table3_bn": 140.12,
+        "table5_bn": 140.1,
+        "difference_bn": 0.020000000000010232,
+        "pass": true
+      },
+      {
+        "country": "Saudi Arabia",
+        "country_code": "45608",
+        "month": "2026-03",
+        "table3_bn": 152.018,
+        "table5_bn": 152,
+        "difference_bn": 0.018000000000000682,
+        "pass": true
+      },
+      {
+        "country": "Saudi Arabia",
+        "country_code": "45608",
+        "month": "2026-02",
+        "table3_bn": 160.431,
+        "table5_bn": 160.4,
+        "difference_bn": 0.03100000000000591,
+        "pass": true
+      },
+      {
+        "country": "Saudi Arabia",
+        "country_code": "45608",
+        "month": "2026-01",
+        "table3_bn": 134.78,
+        "table5_bn": 134.8,
+        "difference_bn": -0.020000000000010232,
+        "pass": true
+      },
+      {
+        "country": "Saudi Arabia",
+        "country_code": "45608",
+        "month": "2025-12",
+        "table3_bn": 149.549,
+        "table5_bn": 149.5,
+        "difference_bn": 0.049000000000006594,
+        "pass": true
+      },
+      {
+        "country": "Saudi Arabia",
+        "country_code": "45608",
+        "month": "2025-11",
+        "table3_bn": 148.842,
+        "table5_bn": 148.8,
+        "difference_bn": 0.04200000000000159,
+        "pass": true
+      },
+      {
+        "country": "Saudi Arabia",
+        "country_code": "45608",
+        "month": "2025-10",
+        "table3_bn": 134.303,
+        "table5_bn": 134.3,
+        "difference_bn": 0.002999999999985903,
+        "pass": true
+      },
+      {
+        "country": "Saudi Arabia",
+        "country_code": "45608",
+        "month": "2025-09",
+        "table3_bn": 134.171,
+        "table5_bn": 134.2,
+        "difference_bn": -0.028999999999996362,
+        "pass": true
+      },
+      {
+        "country": "Saudi Arabia",
+        "country_code": "45608",
+        "month": "2025-08",
+        "table3_bn": 132.98,
+        "table5_bn": 133,
+        "difference_bn": -0.020000000000010232,
+        "pass": true
+      },
+      {
+        "country": "Saudi Arabia",
+        "country_code": "45608",
+        "month": "2025-07",
+        "table3_bn": 131.641,
+        "table5_bn": 131.6,
+        "difference_bn": 0.04099999999999682,
+        "pass": true
+      },
+      {
+        "country": "Saudi Arabia",
+        "country_code": "45608",
+        "month": "2025-06",
+        "table3_bn": 130.471,
+        "table5_bn": 130.5,
+        "difference_bn": -0.028999999999996362,
+        "pass": true
+      },
+      {
+        "country": "Korea, South",
+        "country_code": "43001",
+        "month": "2026-06",
+        "table3_bn": 134.731,
+        "table5_bn": 134.7,
+        "difference_bn": 0.03100000000000591,
+        "pass": true
+      },
+      {
+        "country": "Korea, South",
+        "country_code": "43001",
+        "month": "2026-05",
+        "table3_bn": 132.273,
+        "table5_bn": 132.3,
+        "difference_bn": -0.027000000000015234,
+        "pass": true
+      },
+      {
+        "country": "Korea, South",
+        "country_code": "43001",
+        "month": "2026-04",
+        "table3_bn": 135.157,
+        "table5_bn": 135.2,
+        "difference_bn": -0.042999999999977945,
+        "pass": true
+      },
+      {
+        "country": "Korea, South",
+        "country_code": "43001",
+        "month": "2026-03",
+        "table3_bn": 136.832,
+        "table5_bn": 136.8,
+        "difference_bn": 0.031999999999982265,
+        "pass": true
+      },
+      {
+        "country": "Korea, South",
+        "country_code": "43001",
+        "month": "2026-02",
+        "table3_bn": 140.922,
+        "table5_bn": 140.9,
+        "difference_bn": 0.02199999999999136,
+        "pass": true
+      },
+      {
+        "country": "Korea, South",
+        "country_code": "43001",
+        "month": "2026-01",
+        "table3_bn": 141.307,
+        "table5_bn": 141.3,
+        "difference_bn": 0.0069999999999765805,
+        "pass": true
+      },
+      {
+        "country": "Korea, South",
+        "country_code": "43001",
+        "month": "2025-12",
+        "table3_bn": 140.577,
+        "table5_bn": 140.6,
+        "difference_bn": -0.022999999999996135,
+        "pass": true
+      },
+      {
+        "country": "Korea, South",
+        "country_code": "43001",
+        "month": "2025-11",
+        "table3_bn": 145.134,
+        "table5_bn": 145.1,
+        "difference_bn": 0.033999999999991815,
+        "pass": true
+      },
+      {
+        "country": "Korea, South",
+        "country_code": "43001",
+        "month": "2025-10",
+        "table3_bn": 145.018,
+        "table5_bn": 145,
+        "difference_bn": 0.018000000000000682,
+        "pass": true
+      },
+      {
+        "country": "Korea, South",
+        "country_code": "43001",
+        "month": "2025-09",
+        "table3_bn": 142.738,
+        "table5_bn": 142.7,
+        "difference_bn": 0.038000000000010914,
+        "pass": true
+      },
+      {
+        "country": "Korea, South",
+        "country_code": "43001",
+        "month": "2025-08",
+        "table3_bn": 135.791,
+        "table5_bn": 135.8,
+        "difference_bn": -0.009000000000014552,
+        "pass": true
+      },
+      {
+        "country": "Korea, South",
+        "country_code": "43001",
+        "month": "2025-07",
+        "table3_bn": 132.339,
+        "table5_bn": 132.3,
+        "difference_bn": 0.03899999999998727,
+        "pass": true
+      },
+      {
+        "country": "Korea, South",
+        "country_code": "43001",
+        "month": "2025-06",
+        "table3_bn": 126.532,
+        "table5_bn": 126.5,
+        "difference_bn": 0.031999999999996476,
+        "pass": true
+      },
+      {
+        "country": "United Arab Emirates",
+        "country_code": "46604",
+        "month": "2026-06",
+        "table3_bn": 114.823,
+        "table5_bn": 114.8,
+        "difference_bn": 0.022999999999996135,
+        "pass": true
+      },
+      {
+        "country": "United Arab Emirates",
+        "country_code": "46604",
+        "month": "2026-05",
+        "table3_bn": 118.6,
+        "table5_bn": 118.6,
+        "difference_bn": 0,
+        "pass": true
+      },
+      {
+        "country": "United Arab Emirates",
+        "country_code": "46604",
+        "month": "2026-04",
+        "table3_bn": 112.546,
+        "table5_bn": 112.5,
+        "difference_bn": 0.04600000000000648,
+        "pass": true
+      },
+      {
+        "country": "United Arab Emirates",
+        "country_code": "46604",
+        "month": "2026-03",
+        "table3_bn": 114.147,
+        "table5_bn": 114.1,
+        "difference_bn": 0.047000000000011255,
+        "pass": true
+      },
+      {
+        "country": "United Arab Emirates",
+        "country_code": "46604",
+        "month": "2026-02",
+        "table3_bn": 119.96,
+        "table5_bn": 120,
+        "difference_bn": -0.04000000000000625,
+        "pass": true
+      },
+      {
+        "country": "United Arab Emirates",
+        "country_code": "46604",
+        "month": "2026-01",
+        "table3_bn": 112.446,
+        "table5_bn": 112.4,
+        "difference_bn": 0.04599999999999227,
+        "pass": true
+      },
+      {
+        "country": "United Arab Emirates",
+        "country_code": "46604",
+        "month": "2025-12",
+        "table3_bn": 95.656,
+        "table5_bn": 95.7,
+        "difference_bn": -0.04399999999999693,
+        "pass": true
+      },
+      {
+        "country": "United Arab Emirates",
+        "country_code": "46604",
+        "month": "2025-11",
+        "table3_bn": 103.517,
+        "table5_bn": 103.5,
+        "difference_bn": 0.016999999999995907,
+        "pass": true
+      },
+      {
+        "country": "United Arab Emirates",
+        "country_code": "46604",
+        "month": "2025-10",
+        "table3_bn": 110.653,
+        "table5_bn": 110.7,
+        "difference_bn": -0.046999999999997044,
+        "pass": true
+      },
+      {
+        "country": "United Arab Emirates",
+        "country_code": "46604",
+        "month": "2025-09",
+        "table3_bn": 103.28,
+        "table5_bn": 103.3,
+        "difference_bn": -0.01999999999999602,
+        "pass": true
+      },
+      {
+        "country": "United Arab Emirates",
+        "country_code": "46604",
+        "month": "2025-08",
+        "table3_bn": 108.661,
+        "table5_bn": 108.7,
+        "difference_bn": -0.03900000000000148,
+        "pass": true
+      },
+      {
+        "country": "United Arab Emirates",
+        "country_code": "46604",
+        "month": "2025-07",
+        "table3_bn": 107.696,
+        "table5_bn": 107.7,
+        "difference_bn": -0.0040000000000048885,
+        "pass": true
+      },
+      {
+        "country": "United Arab Emirates",
+        "country_code": "46604",
+        "month": "2025-06",
+        "table3_bn": 96.388,
+        "table5_bn": 96.4,
+        "difference_bn": -0.012000000000000455,
+        "pass": true
+      },
+      {
+        "country": "Israel",
+        "country_code": "42501",
+        "month": "2026-06",
+        "table3_bn": 110.915,
+        "table5_bn": 110.9,
+        "difference_bn": 0.015000000000000568,
+        "pass": true
+      },
+      {
+        "country": "Israel",
+        "country_code": "42501",
+        "month": "2026-05",
+        "table3_bn": 117.569,
+        "table5_bn": 117.6,
+        "difference_bn": -0.0309999999999917,
+        "pass": true
+      },
+      {
+        "country": "Israel",
+        "country_code": "42501",
+        "month": "2026-04",
+        "table3_bn": 113.363,
+        "table5_bn": 113.4,
+        "difference_bn": -0.03700000000000614,
+        "pass": true
+      },
+      {
+        "country": "Israel",
+        "country_code": "42501",
+        "month": "2026-03",
+        "table3_bn": 104.837,
+        "table5_bn": 104.8,
+        "difference_bn": 0.03700000000000614,
+        "pass": true
+      },
+      {
+        "country": "Israel",
+        "country_code": "42501",
+        "month": "2026-02",
+        "table3_bn": 110.769,
+        "table5_bn": 110.8,
+        "difference_bn": -0.0309999999999917,
+        "pass": true
+      },
+      {
+        "country": "Israel",
+        "country_code": "42501",
+        "month": "2026-01",
+        "table3_bn": 114.65,
+        "table5_bn": 114.7,
+        "difference_bn": -0.04999999999999716,
+        "pass": true
+      },
+      {
+        "country": "Israel",
+        "country_code": "42501",
+        "month": "2025-12",
+        "table3_bn": 105.666,
+        "table5_bn": 105.7,
+        "difference_bn": -0.034000000000006025,
+        "pass": true
+      },
+      {
+        "country": "Israel",
+        "country_code": "42501",
+        "month": "2025-11",
+        "table3_bn": 107.88,
+        "table5_bn": 107.9,
+        "difference_bn": -0.020000000000010232,
+        "pass": true
+      },
+      {
+        "country": "Israel",
+        "country_code": "42501",
+        "month": "2025-10",
+        "table3_bn": 108.617,
+        "table5_bn": 108.6,
+        "difference_bn": 0.017000000000010118,
+        "pass": true
+      },
+      {
+        "country": "Israel",
+        "country_code": "42501",
+        "month": "2025-09",
+        "table3_bn": 105.319,
+        "table5_bn": 105.3,
+        "difference_bn": 0.019000000000005457,
+        "pass": true
+      },
+      {
+        "country": "Israel",
+        "country_code": "42501",
+        "month": "2025-08",
+        "table3_bn": 100.053,
+        "table5_bn": 100.1,
+        "difference_bn": -0.046999999999997044,
+        "pass": true
+      },
+      {
+        "country": "Israel",
+        "country_code": "42501",
+        "month": "2025-07",
+        "table3_bn": 102.47,
+        "table5_bn": 102.5,
+        "difference_bn": -0.030000000000001137,
+        "pass": true
+      },
+      {
+        "country": "Israel",
+        "country_code": "42501",
+        "month": "2025-06",
+        "table3_bn": 101.835,
+        "table5_bn": 101.8,
+        "difference_bn": 0.03499999999999659,
+        "pass": true
+      },
+      {
+        "country": "Grand Total",
+        "country_code": "99996",
+        "month": "2026-06",
+        "table3_bn": 9298.959,
+        "table5_bn": 9299,
+        "difference_bn": -0.04099999999925785,
+        "pass": true
+      },
+      {
+        "country": "Grand Total",
+        "country_code": "99996",
+        "month": "2026-05",
+        "table3_bn": 9371.073,
+        "table5_bn": 9371.1,
+        "difference_bn": -0.027000000000043656,
+        "pass": true
+      },
+      {
+        "country": "Grand Total",
+        "country_code": "99996",
+        "month": "2026-04",
+        "table3_bn": 9352.646,
+        "table5_bn": 9352.6,
+        "difference_bn": 0.046000000000276486,
+        "pass": true
+      },
+      {
+        "country": "Grand Total",
+        "country_code": "99996",
+        "month": "2026-03",
+        "table3_bn": 9355.048,
+        "table5_bn": 9355,
+        "difference_bn": 0.04800000000068394,
+        "pass": true
+      },
+      {
+        "country": "Grand Total",
+        "country_code": "99996",
+        "month": "2026-02",
+        "table3_bn": 9489.36,
+        "table5_bn": 9489.4,
+        "difference_bn": -0.039999999999054126,
+        "pass": true
+      },
+      {
+        "country": "Grand Total",
+        "country_code": "99996",
+        "month": "2026-01",
+        "table3_bn": 9291.317,
+        "table5_bn": 9291.3,
+        "difference_bn": 0.016999999999825377,
+        "pass": true
+      },
+      {
+        "country": "Grand Total",
+        "country_code": "99996",
+        "month": "2025-12",
+        "table3_bn": 9269.535,
+        "table5_bn": 9269.5,
+        "difference_bn": 0.03499999999985448,
+        "pass": true
+      },
+      {
+        "country": "Grand Total",
+        "country_code": "99996",
+        "month": "2025-11",
+        "table3_bn": 9349.632,
+        "table5_bn": 9349.6,
+        "difference_bn": 0.0319999999992433,
+        "pass": true
+      },
+      {
+        "country": "Grand Total",
+        "country_code": "99996",
+        "month": "2025-10",
+        "table3_bn": 9230.486,
+        "table5_bn": 9230.5,
+        "difference_bn": -0.013999999999214197,
+        "pass": true
+      },
+      {
+        "country": "Grand Total",
+        "country_code": "99996",
+        "month": "2025-09",
+        "table3_bn": 9237.495,
+        "table5_bn": 9237.5,
+        "difference_bn": -0.004999999999199645,
+        "pass": true
+      },
+      {
+        "country": "Grand Total",
+        "country_code": "99996",
+        "month": "2025-08",
+        "table3_bn": 9248.209,
+        "table5_bn": 9248.2,
+        "difference_bn": 0.009000000000014552,
+        "pass": true
+      },
+      {
+        "country": "Grand Total",
+        "country_code": "99996",
+        "month": "2025-07",
+        "table3_bn": 9109.546,
+        "table5_bn": 9109.5,
+        "difference_bn": 0.046000000000276486,
+        "pass": true
+      },
+      {
+        "country": "Grand Total",
+        "country_code": "99996",
+        "month": "2025-06",
+        "table3_bn": 9093.552,
+        "table5_bn": 9093.6,
+        "difference_bn": -0.04800000000068394,
+        "pass": true
+      },
+      {
+        "country": "Of Which: Foreign Official",
+        "country_code": "99990",
+        "month": "2026-06",
+        "table3_bn": 3778.118,
+        "table5_bn": 3778.1,
+        "difference_bn": 0.018000000000029104,
+        "pass": true
+      },
+      {
+        "country": "Of Which: Foreign Official",
+        "country_code": "99990",
+        "month": "2026-05",
+        "table3_bn": 3847.999,
+        "table5_bn": 3848,
+        "difference_bn": -0.0010000000002037268,
+        "pass": true
+      },
+      {
+        "country": "Of Which: Foreign Official",
+        "country_code": "99990",
+        "month": "2026-04",
+        "table3_bn": 3906.503,
+        "table5_bn": 3906.5,
+        "difference_bn": 0.003000000000156433,
+        "pass": true
+      },
+      {
+        "country": "Of Which: Foreign Official",
+        "country_code": "99990",
+        "month": "2026-03",
+        "table3_bn": 3904.901,
+        "table5_bn": 3904.9,
+        "difference_bn": 0.0009999999997489795,
+        "pass": true
+      },
+      {
+        "country": "Of Which: Foreign Official",
+        "country_code": "99990",
+        "month": "2026-02",
+        "table3_bn": 4010.976,
+        "table5_bn": 4011,
+        "difference_bn": -0.023999999999887223,
+        "pass": true
+      },
+      {
+        "country": "Of Which: Foreign Official",
+        "country_code": "99990",
+        "month": "2026-01",
+        "table3_bn": 3943.284,
+        "table5_bn": 3943.3,
+        "difference_bn": -0.016000000000076398,
+        "pass": true
+      },
+      {
+        "country": "Of Which: Foreign Official",
+        "country_code": "99990",
+        "month": "2025-12",
+        "table3_bn": 3877.654,
+        "table5_bn": 3877.7,
+        "difference_bn": -0.04599999999982174,
+        "pass": true
+      },
+      {
+        "country": "Of Which: Foreign Official",
+        "country_code": "99990",
+        "month": "2025-11",
+        "table3_bn": 3912.314,
+        "table5_bn": 3912.3,
+        "difference_bn": 0.013999999999668944,
+        "pass": true
+      },
+      {
+        "country": "Of Which: Foreign Official",
+        "country_code": "99990",
+        "month": "2025-10",
+        "table3_bn": 3866.433,
+        "table5_bn": 3866.4,
+        "difference_bn": 0.032999999999901775,
+        "pass": true
+      },
+      {
+        "country": "Of Which: Foreign Official",
+        "country_code": "99990",
+        "month": "2025-09",
+        "table3_bn": 3872.555,
+        "table5_bn": 3872.6,
+        "difference_bn": -0.04500000000007276,
+        "pass": true
+      },
+      {
+        "country": "Of Which: Foreign Official",
+        "country_code": "99990",
+        "month": "2025-08",
+        "table3_bn": 3919.787,
+        "table5_bn": 3919.8,
+        "difference_bn": -0.013000000000374712,
+        "pass": true
+      },
+      {
+        "country": "Of Which: Foreign Official",
+        "country_code": "99990",
+        "month": "2025-07",
+        "table3_bn": 3886.47,
+        "table5_bn": 3886.5,
+        "difference_bn": -0.03000000000020009,
+        "pass": true
+      },
+      {
+        "country": "Of Which: Foreign Official",
+        "country_code": "99990",
+        "month": "2025-06",
+        "table3_bn": 3892.526,
+        "table5_bn": 3892.5,
+        "difference_bn": 0.02599999999983993,
+        "pass": true
+      }
+    ]
+  },
+  "preparation_status": "PASS"
+}

@@ -144,6 +144,10 @@ export default function Home() {
     </TooltipProvider>
   );
 }
+export function DashboardPage({ data }: { data: Dataset }) {
+  return <TooltipProvider><Dashboard data={data} /></TooltipProvider>;
+}
+
 function Dashboard({ data }: { data: Dataset }) {
   const model = useMemo(() => makeModel(data), [data]);
   const [month, setMonth] = useState(data.meta.latest_month),
