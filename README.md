@@ -2,6 +2,8 @@
 
 미국 재무부 Treasury International Capital(TIC) 공개 원본을 로컬 스냅샷으로 사용한 인터랙티브 단일 페이지 대시보드입니다. 백엔드와 데이터베이스 없이 브라우저에서 실행됩니다.
 
+개발 문서는 [`docs/README.md`](docs/README.md)에서 시작합니다. 저장소 작업 규칙은 루트의 [`AGENTS.md`](AGENTS.md)에도 있으며 `/docs`에 사본을 보관합니다.
+
 ## 실행
 
 서버 없이 최종 화면을 보려면 프로젝트 루트의 [`UST_Holders_v2.html`](UST_Holders_v2.html)을 브라우저에서 엽니다. 이 파일에는 화면 코드, 스타일, TIC 데이터 스냅샷이 포함되어 있습니다. `npm run build:standalone`은 별도 v1 파일을 생성하며 v2를 갱신하지 않습니다.
