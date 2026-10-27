@@ -15,7 +15,8 @@ def test_local_snapshot_pipeline_and_idempotent_retry(tmp_path):
     with Session(engine,expire_on_commit=False) as db:
         first=IngestionPipeline(db,settings).ingest(from_directory=root/"data"/"raw",entity_seed=root/"dashboard"/"public"/"data"/"tic.json")
         vintage=db.get(DatasetVintage,uuid.UUID(first["vintage_id"]))
-        assert db.scalar(select(func.count()).select_from(TreasuryHoldingFact))==19633
+        expected_fact_rows=first["table3_rows"]+first["historical_adopted_rows"]
+        assert db.scalar(select(func.count()).select_from(TreasuryHoldingFact))==expected_fact_rows
         assert db.scalar(select(func.count()).select_from(HoldingEntity))==132
         assert db.scalar(select(func.count()).select_from(Table5Crosscheck).where(Table5Crosscheck.is_pass.is_(False)))==0
         assert db.scalar(select(func.count()).select_from(Table5Crosscheck))==286
@@ -23,6 +24,6 @@ def test_local_snapshot_pipeline_and_idempotent_retry(tmp_path):
         assert validate_shadow(db,vintage.vintage_id,root/"dashboard"/"public"/"data"/"tic.json")["status"]=="PASS"
         second=IngestionPipeline(db,settings).ingest(from_directory=root/"data"/"raw",entity_seed=root/"dashboard"/"public"/"data"/"tic.json")
         assert second["reused"] is True
-        assert db.scalar(select(func.count()).select_from(TreasuryHoldingFact))==19633
+        assert db.scalar(select(func.count()).select_from(TreasuryHoldingFact))==expected_fact_rows
         assert db.scalar(select(func.count()).select_from(DatasetVintage))==1
         assert db.scalar(select(func.count()).select_from(IngestionRun))==2

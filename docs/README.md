@@ -114,7 +114,7 @@ uvicorn src.api:app --host 127.0.0.1 --port 8000
 
 `--dry-run`은 다운로드/로컬 파일 검증과 파싱만 수행하고 DB 및 원본 저장소를 변경하지 않습니다. `--from-directory`는 manifest의 URL과 SHA-256을 확인한 뒤 로컬 원본으로 재현합니다. 인자 없이 실행하면 공식 Treasury 파일 URL을 직접 사용합니다.
 
-원본은 `TIC_RAW_STORAGE_DIR` 아래 실행 UUID별 경로에 변경 없이 저장합니다. S3 호환 저장 구현도 제공하며, 배포 시 스토리지 팩토리에서 `S3RawStorage`를 주입해야 합니다. ETag/Last-Modified 조건부 응답은 `NotModified`로 명시적으로 반환하며, 캐시 원본을 재사용할 때도 SHA-256 검증을 생략하면 안 됩니다.
+기본 설정에서 원본은 `TIC_RAW_STORAGE_DIR` 아래 실행 UUID별 경로에 변경 없이 저장합니다. `TIC_STORAGE_BACKEND=s3`와 `TIC_S3_BUCKET`을 설정하면 파이프라인이 S3 호환 저장 구현을 선택합니다. ETag/Last-Modified 조건부 응답은 `NotModified`로 명시적으로 반환하며, 캐시 원본을 재사용할 때도 SHA-256 검증을 생략하면 안 됩니다.
 
 ### 트랜잭션과 롤백
 
