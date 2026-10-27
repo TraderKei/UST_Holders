@@ -17,7 +17,7 @@
 | 2027-02-18 | 2026-12 | 2027-02-19 06:00 |
 | 2027-03-18 | 2027-01 | 2027-03-19 05:00 |
 
-표의 한국시간은 **공식 공표 예정 시각을 환산한 확인 시작점**이며 회사 서버의 확정 수집·게시 시각이 아니다. 실제 파일 게시가 늦거나 일정이 변경될 수 있다. 2026-10-27 현재 공식 [Table 3](https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table3.txt)과 [Table 5](https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt)의 최신 기준월은 **2026-08**이고, 이 저장소의 v2 내장 스냅샷은 **2026-06**이다. 화면의 최신월은 원본 수집과 검증 후 배포해야 바뀐다.
+표의 한국시간은 **공식 공표 예정 시각을 환산한 확인 시작점**이며 회사 서버의 확정 수집·게시 시각이 아니다. 실제 파일 게시가 늦거나 일정이 변경될 수 있다. 2026-10-27 현재 공식 [Table 3](https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table3.txt)과 [Table 5](https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt)의 최신 기준월은 **2026-08**이며, 이 저장소의 v2 내장 스냅샷도 검증 후 **2026-08**로 갱신했다. 이후 화면의 최신월은 새 원본 수집과 검증 후 배포해야 바뀐다.
 
 같은 [공식 일정의 수정 규칙](https://home.treasury.gov/data/treasury-international-capital-tic-system/release-dates-of-tic-data)에 따르면 1·4·7·10월 발표 때는 지난 1년 자료가, 그 외 발표 때는 직전 3개월 자료가 수정될 수 있다. 큰 수정은 더 이전 기간에도 적용될 수 있다. 따라서 최신 기준월이 그대로여도 원본 SHA-256과 과거 월의 변경 여부를 확인해야 한다.
 

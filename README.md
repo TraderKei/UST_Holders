@@ -70,7 +70,7 @@ Excel·Image·새로고침 버튼은 요구사항에 따라 기능 모형으로 
 
 ## 검증 결과
 
-- 수집된 최신 기준월: 2026-06
+- 수집된 최신 기준월: 2026-08
 - Table 3 ↔ Table 5: 최근 13개월 주요 행 286개 교차검증 통과
 - `Grand Total = All Countries + Total IROs` 일치
 - 장기채 + 단기채 = 총보유액 검증 통과(허용 오차 1 USD million)
