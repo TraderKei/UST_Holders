@@ -4,7 +4,7 @@
 
 ## 실행
 
-서버 없이 최종 화면을 보려면 프로젝트 루트의 [`UST_Holders_v1.html`](UST_Holders_v1.html)을 브라우저에서 엽니다. 이 파일에는 화면 코드, 스타일, TIC 데이터 스냅샷이 포함되어 있습니다. 화면이나 데이터를 수정한 뒤에는 `cd dashboard`에서 `npm run build:standalone`으로 다시 생성합니다.
+서버 없이 최종 화면을 보려면 프로젝트 루트의 [`UST_Holders_v2.html`](UST_Holders_v2.html)을 브라우저에서 엽니다. 이 파일에는 화면 코드, 스타일, TIC 데이터 스냅샷이 포함되어 있습니다. `npm run build:standalone`은 별도 v1 파일을 생성하며 v2를 갱신하지 않습니다.
 
 Node.js 22.13 이상이 필요합니다. 프로젝트 루트에서 다음 명령을 실행합니다.
 
@@ -27,14 +27,19 @@ npm run build
 
 ## 데이터 갱신
 
-현재 결과물은 `data/raw`에 보존한 공식 원본과 `dashboard/public/data/tic.json` 정제 스냅샷을 사용합니다. 원본 파일을 새 버전으로 교체한 후 다음 명령으로 화면용 데이터를 다시 생성하고 검증합니다.
+v2 HTML의 내장 데이터를 새 공식 원본으로 갱신하려면 다음 명령을 실행합니다.
 
 ```powershell
-node scripts/prepare-data.mjs
-node scripts/validate-data.mjs
+node scripts/update-v2-data.mjs
 ```
 
-원본을 다시 내려받을 때에는 아래 URL을 그대로 사용하고 `data/raw/manifest.json`의 수집 시각과 SHA-256을 함께 갱신해야 합니다.
+네트워크 없이 기존 원본으로 재현하거나 현재 v2 데이터와의 일치 여부만 확인할 수도 있습니다.
+
+```powershell
+node scripts/update-v2-data.mjs --from-directory data/raw --check
+```
+
+수집·검증·HTML 반영 순서와 출력 파일은 [v2 데이터 수집 설명서](docs/V2_DATA_COLLECTION.md)에 정리했습니다. 공식 원본 URL은 다음과 같습니다.
 
 - [TIC Table 3](https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table3.txt)
 - [TIC Table 5](https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt)

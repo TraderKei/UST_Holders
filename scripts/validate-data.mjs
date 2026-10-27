@@ -4,9 +4,9 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const rawDir = path.join(root, 'data', 'raw');
-const dataPath = path.join(root, 'dashboard', 'public', 'data', 'tic.json');
-const validationPath = path.join(root, 'data', 'validation.json');
+const rawDir = process.env.TIC_RAW_DIR || path.join(root, 'data', 'raw');
+const dataPath = process.env.TIC_DATA_PATH || path.join(root, 'dashboard', 'public', 'data', 'tic.json');
+const validationPath = process.env.TIC_VALIDATION_PATH || path.join(root, 'data', 'validation.json');
 
 const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 const manifest = JSON.parse(fs.readFileSync(path.join(rawDir, 'manifest.json'), 'utf8'));
