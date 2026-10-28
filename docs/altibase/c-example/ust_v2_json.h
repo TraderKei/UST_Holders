@@ -2,7 +2,9 @@
 #define UST_V2_JSON_H
 #include <stddef.h>
 
-/* All non-NULL cells must be NUL-terminated UTF-8. Numeric cells are ASCII.
+/* All non-NULL cells must be NUL-terminated UTF-8, with no embedded NUL.
+ * The DB adapter must reject embedded NUL using the returned byte length.
+ * Numeric cells are ASCII.
  * SQL NULL is a NULL pointer. Row memory remains valid during the callback.
  * Return 1 on complete success, 0 on DB, conversion or callback failure.
  * dataset_id is a bound parameter, never interpolated into SQL.
@@ -21,4 +23,8 @@ typedef struct { void *db; UstQuery query; } UstReader;
 int ust_v2_build(const UstReader *reader, char **body, size_t *length,
                  char *error, size_t error_capacity);
 void ust_v2_free(char *body);
+#ifdef UST_JSON_TESTING
+/* Test-only allocation failure injection, absent from production builds. */
+void ust_v2_test_fail_after(long successful_resizes);
+#endif
 #endif

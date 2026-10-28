@@ -1,33 +1,33 @@
-# C JSON 생성 예제 검증
+# 외부 코드 없는 C JSON 생성 예제 검증
 
-이 테스트는 `docs/altibase/c-example/ust_v2_json.c`의 실제 JSON 생성 함수를 실행합니다. 회사 서버 실행 의존성은 C와 승인된 cJSON이며, 이 테스트도 C로 작성되어 있습니다. 실제 DB 대신 기존 JSON 스냅샷을 읽어 조회 결과를 제공하므로 Altibase 드라이버·SQL 실행·잠금·회사 통신 기능을 검증하지 않습니다.
+운영용 `ust_v2_json.c`와 C 테스트는 표준 C 라이브러리만 사용합니다. 외부 JSON 라이브러리·헤더·파서·링크 옵션이 필요하지 않습니다. C99 소스의 문자코드는 UTF-8로 설정합니다.
 
-회사 또는 개발 PC의 C99 컴파일러와 승인된 동일 버전의 `cJSON.h`, `cJSON.c`를 준비합니다. 외부 코드는 저장소에 포함하지 않습니다. 아래는 POSIX 셸의 명령 형태 예시이며 경로·출력 확장자·링크 옵션은 환경에 맞게 조정합니다. 컴파일러는 UTF-8 소스를 읽도록 설정합니다.
+## 개발 PC에서 실행
+
+아래는 POSIX 셸 명령 예시입니다. 컴파일러 경로와 실행 파일 확장자는 환경에 맞게 바꿉니다.
 
 ```sh
-cc -std=c99 -Wall -Wextra \
-  -I<승인된_cJSON_경로> -Idocs/altibase/c-example \
+cc -std=c99 -Wall -Wextra -DUST_JSON_TESTING \
+  -Idocs/altibase/c-example \
   tests/c/test_ust_v2_json.c docs/altibase/c-example/ust_v2_json.c \
-  <승인된_cJSON_경로>/cJSON.c -lm -o test_ust_v2_json
+  -o test_ust_v2_json
 
-./test_ust_v2_json dashboard/public/data/tic.json > generated.json
+python tests/c/verify_ust_v2_json.py ./test_ust_v2_json
 ```
 
-정상 실행은 JSON을 출력하고 종료 코드 0을 반환합니다. 출력 전 입력 스냅샷의 국가·월·레코드 및 메타정보와 비교합니다. 서비스 환경을 뜻하는 `source_mode`, 상태 설명 `status`, 추가 식별자 `dataset_id`는 운영 예제의 정의를 적용합니다. 현재 데이터의 19,815개 행과 NULL·출처 번호가 유지되어야 합니다. 소수·문자열 특수문자 검증에는 기존 행 수와 자료 설명을 유지한 별도 스냅샷을 만들어 같은 명령을 실행합니다.
+Python은 개발 PC의 대조 작업에만 쓰며 표준 라이브러리만 사용합니다. 기존 스냅샷을 DB 조회 결과 모양의 임시 파일로 바꾸고, 실제 C 생성부를 실행한 출력이 기존 데이터와 같은지 확인합니다. Python과 테스트 입력 파일은 C언어 전용 회사 운영 서버에 배포하지 않습니다. 회사에서는 동일한 형태의 조회 결과를 Altibase에서 직접 받습니다.
 
-오류 상황은 두 번째 인자로 지정합니다. 아래 각 명령은 오류 응답 전 단계에서 본문을 만들지 않는 것을 확인하고, 그 검사에 성공하면 종료 코드 0과 표준 오류의 `PASS rejected ...`를 반환합니다. 실패 검사에서 JSON이 표준 출력으로 나오면 안 됩니다.
+테스트는 19,815개 행의 7개 수치와 NULL, 국가 목록과 순서, 월 목록, 출처 번호, 메타정보를 대조합니다. 운영 환경을 나타내는 `source_mode`·`status`와 새 `dataset_id`만 정해진 운영 값으로 변경됩니다. 추가로 한글·4byte 문자·따옴표·역슬래시·줄바꿈·제어문자·NULL 지역명·0·음수·소수를 검증합니다.
 
-```sh
-./test_ust_v2_json dashboard/public/data/tic.json no-current
-./test_ust_v2_json dashboard/public/data/tic.json query-error
-./test_ust_v2_json dashboard/public/data/tic.json bad-count
-./test_ust_v2_json dashboard/public/data/tic.json bad-source
-./test_ust_v2_json dashboard/public/data/tic.json bad-number
-./test_ust_v2_json dashboard/public/data/tic.json large-number
-./test_ust_v2_json dashboard/public/data/tic.json comma-number
-./test_ust_v2_json dashboard/public/data/tic.json leading-zero
-./test_ust_v2_json dashboard/public/data/tic.json too-precise
-./test_ust_v2_json dashboard/public/data/tic.json allocation-error
-```
+다음 16가지 오류 입력은 본문 없이 실패해야 합니다.
 
-`allocation-error`는 테스트 프로세스 안에서만 메모리 할당 실패를 주입합니다. 서버의 전역 cJSON 훅을 요청마다 바꾸는 구현 예시가 아닙니다. 생성된 실행 파일·검증 출력·외부 라이브러리는 커밋하지 않습니다.
+- 서비스 버전 없음, 조회 실패, 건수 불일치, 출처 순서 오류
+- 숫자에 JSON 구문 삽입, 큰 숫자, 쉼표, 선행 0, 소수 자릿수 초과
+- 최초 메모리 할당 실패, 메모리 확장 실패
+- 월 목록 순서 오류, 잘못된 UTF-8, 빈 숫자, NaN, 지수 표기
+
+`UST_JSON_TESTING`은 테스트 프로세스에서만 메모리 실패를 주입하는 옵션입니다. 프로덕션에서는 이 옵션을 제외합니다. 운영 빌드는 요청별 버퍼를 사용하고 전역 테스트 상태를 포함하지 않습니다.
+
+## 검증 범위
+
+C 테스트 어댑터는 Altibase를 대체한 입력을 제공합니다. 실제 회사의 SQL 실행·DATE 정밀도·문자 변환·접속 기능·통신 콜백·잠금은 검증하지 않습니다. 생성 실행 파일, 입력 파일, 출력 파일은 임시 폴더에만 두고 커밋하지 않습니다.

@@ -10,7 +10,7 @@
 
 [테이블 생성 SQL 초안](altibase/create_tables.sql)과 [화면 전달 JSON 예시](altibase/v2-response-example.json)를 함께 제공합니다. SQL은 회사 Altibase에서 검증하기 전의 설계 초안이며 JSON 예시는 운영 게시용 데이터가 아닙니다. 기존 PostgreSQL 프로그램과 구분되는 목표 설계이며, 실제 회사 시스템 연동은 별도 구현과 검수가 필요합니다.
 
-설계서 1.1은 **서버에서 C언어만 사용하며 전달 방식과 1회 응답 용량에는 제한이 없는 환경**을 반영합니다. 제7장에 [C JSON 생성 예제](altibase/c-example/ust_v2_json.c), [Altibase ODBC 조회·응답 예제](altibase/c-example/ust_v2_odbc.c)를, 제8장에 [브라우저 연결 예제](altibase/c-example/v2-fetch-example.js)를 포함합니다. [C 테스트 실행 방법](../tests/c/README.md)으로 생성 규격을 확인할 수 있습니다. 전체 JSON을 한 번에 전달하며 기존 브라우저 JavaScript는 유지합니다. 회사에서 승인한 C용 JSON 도구와 실제 DB·통신 어댑터 검수는 필요합니다.
+설계서 1.2는 **서버 C언어 전용·외부 코드 금지·1회 응답 용량 제한 없음**을 반영합니다. 제7장의 [C JSON 생성 예제](altibase/c-example/ust_v2_json.c)는 외부 JSON 코드 없이 자체 버퍼·문자 이스케이프·숫자 검사 함수로 작성했습니다. [DB 조회·응답 예제](altibase/c-example/ust_v2_odbc.c)는 회사 기존 Altibase 접속 기능에 연결합니다. 제8장의 [화면 연결 예제](altibase/c-example/v2-fetch-example.js)와 [검증 방법](../tests/c/README.md)도 제공합니다. 외부 코드 금지 운영본은 기존 v2 내장 Vue를 자체 JavaScript로 전환해야 함을 명시했으며, 화면 전환과 회사 DB·통신 연동은 미구현입니다.
 
 ## 실행
 

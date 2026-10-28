@@ -62,6 +62,9 @@ int ust_v2_odbc_query(void *connection,const char *sql,const char *dataset,
                 if(rc!=SQL_SUCCESS) goto done;
                 if(indicator==SQL_NULL_DATA) {cells[i]=NULL;continue;}
                 if(indicator<0 || (size_t)indicator>=sizeof(storage[i])) goto done;
+                /* Length-based DB cells must not hide an embedded NUL from
+                 * the NUL-terminated C writer contract. Reject, never truncate. */
+                if(memchr(storage[i],0,(size_t)indicator)) goto done;
                 storage[i][(size_t)indicator]='\0';
             }
         }

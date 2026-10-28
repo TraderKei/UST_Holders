@@ -6,7 +6,7 @@
 
 회사 Altibase에서 v2 화면을 운영하기 위한 [개발 담당자 전달용 설계서](docs/altibase/UST_Holders_Altibase_Design.html)와 [테이블 생성 SQL 초안](docs/altibase/create_tables.sql), [화면 데이터 예시](docs/altibase/v2-response-example.json)를 제공합니다. 현재 구현 완료 내역과 구분되는 운영 전환 설계이며 회사 환경에서의 구현·검수가 필요합니다.
 
-설계서 1.1은 회사의 C언어 전용 서버 환경과 전체 JSON 1회 전달 방식을 반영하며, [C JSON 생성](docs/altibase/c-example/ust_v2_json.c), [ODBC 조회와 응답](docs/altibase/c-example/ust_v2_odbc.c), [브라우저 연결](docs/altibase/c-example/v2-fetch-example.js) 예제를 제공합니다.
+설계서 1.2는 회사의 C언어 전용 서버·외부 코드 금지·전체 JSON 1회 전달 조건을 반영합니다. [JSON 생성부](docs/altibase/c-example/ust_v2_json.c)는 표준 C 함수만 사용하며 [회사 기존 DB 조회·응답 기능](docs/altibase/c-example/ust_v2_odbc.c)과 연결합니다. [브라우저 연결 예제](docs/altibase/c-example/v2-fetch-example.js)도 제공합니다. 외부 코드 금지를 운영 화면에도 적용하기 위해 기존 v2의 내장 Vue를 자체 JavaScript로 전환하는 작업을 설계에 명시했으며, 실제 화면 전환은 아직 구현하지 않았습니다.
 
 ## 실행
 

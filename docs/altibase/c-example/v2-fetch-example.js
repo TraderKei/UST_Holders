@@ -1,6 +1,7 @@
 /* Integration fragment for UST_Holders_v2.html; not a standalone replacement.
- * Keep the existing browser JavaScript/Vue. C-only applies to server programs.
- * Move ALL existing initialization after the tic-data read into startDashboard.
+ * For an external-code-free deployment implement startDashboard using native
+ * DOM/events/SVG; the reference v2 still embeds Vue and cannot be reused as-is.
+ * C-only applies to server programs, not the browser's standard JavaScript.
  */
 async function loadUstDashboard(startDashboard, showLoading, showError) {
   showLoading();
@@ -21,7 +22,7 @@ async function loadUstDashboard(startDashboard, showLoading, showError) {
         data.records.some(row => !Array.isArray(row) || row.length !== 10)) {
       throw new Error('Invalid UST response');
     }
-    // startDashboard must dispose/update the existing Vue instance on reload.
+    // startDashboard must dispose/update its DOM and event handlers on reload.
     // Serialize reloads or cancel old requests so an older response cannot win.
     startDashboard(data);
   } catch (error) {
