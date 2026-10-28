@@ -6,6 +6,8 @@
 
 회사 Altibase에서 v2 화면을 운영하기 위한 [개발 담당자 전달용 설계서](docs/altibase/UST_Holders_Altibase_Design.html)와 [테이블 생성 SQL 초안](docs/altibase/create_tables.sql), [화면 데이터 예시](docs/altibase/v2-response-example.json)를 제공합니다. 현재 구현 완료 내역과 구분되는 운영 전환 설계이며 회사 환경에서의 구현·검수가 필요합니다.
 
+설계서 1.1은 회사의 C언어 전용 서버 환경과 전체 JSON 1회 전달 방식을 반영하며, [C JSON 생성](docs/altibase/c-example/ust_v2_json.c), [ODBC 조회와 응답](docs/altibase/c-example/ust_v2_odbc.c), [브라우저 연결](docs/altibase/c-example/v2-fetch-example.js) 예제를 제공합니다.
+
 ## 실행
 
 서버 없이 최종 화면을 보려면 프로젝트 루트의 [`UST_Holders_v2.html`](UST_Holders_v2.html)을 브라우저에서 엽니다. 이 파일에는 화면 코드, 스타일, TIC 데이터 스냅샷이 포함되어 있습니다. `npm run build:standalone`은 별도 v1 파일을 생성하며 v2를 갱신하지 않습니다.
