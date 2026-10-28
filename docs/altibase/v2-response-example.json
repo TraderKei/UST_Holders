@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "schema_version": 2,
+    "latest_month": "2011-09",
+    "first_month": "2011-09",
+    "downloaded_at": "2026-10-27T05:13:21.452Z",
+    "source_mode": "altibase",
+    "sources": [
+      {
+        "file": "slt_table3.txt",
+        "url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table3.txt",
+        "downloaded_at": "2026-10-27T05:13:21.452Z",
+        "sha256": "8F5029C4B9452626554DF0FC6B203D6F633ED8696788379DD61254E7F001EDA9"
+      },
+      {
+        "file": "slt_table5.txt",
+        "url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt",
+        "downloaded_at": "2026-10-27T05:13:21.452Z",
+        "sha256": "E5DE973B1A6F13C8EC95707D665CE107F53F467DB10D7A2D991677EE67D1DE11"
+      },
+      {
+        "file": "slt3d_globl.csv",
+        "url": "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt3d_globl.csv",
+        "downloaded_at": "2026-10-27T05:13:21.452Z",
+        "sha256": "D6B74F0A24E156F86911A383B1A2AE1FDD444017B4875716ED67A0FDEEBA52AE"
+      }
+    ],
+    "base_unit": "USD million",
+    "table5_unit": "USD billion",
+    "source_fields": [
+      "for_treas_pos",
+      "for_lt_treas_pos",
+      "for_st_treas_pos",
+      "for_treas_net",
+      "for_lt_treas_net",
+      "for_st_treas_net",
+      "for_lt_treas_valchg"
+    ],
+    "record_columns": [
+      "country_code",
+      "reference_month",
+      "for_treas_pos",
+      "for_lt_treas_pos",
+      "for_st_treas_pos",
+      "for_treas_net",
+      "for_lt_treas_net",
+      "for_st_treas_net",
+      "for_lt_treas_valchg",
+      "source_index"
+    ],
+    "comparison_lags_months": [
+      1,
+      3,
+      6,
+      12
+    ],
+    "derived_fields": {
+      "change": "current total holdings - exact lag-month total holdings",
+      "change_pct": "change / exact lag-month total holdings * 100",
+      "share_of_grand_total_pct": "entity total holdings / Grand Total * 100",
+      "long_term_share_pct": "long-term holdings / total holdings * 100",
+      "short_term_share_pct": "short-term holdings / total holdings * 100",
+      "rank": "descending total holdings among record_type=country only",
+      "other_adjustment_usd_mn": "monthly change - net transactions - long-term valuation change",
+      "null_rule": "missing comparison month, missing operand, or zero denominator => null"
+    },
+    "ranking_record_type": "country",
+    "is_preliminary": null,
+    "status": "최신 수집본 · 수정 가능 · 잠정 여부 미표기",
+    "history_join": "2020-01",
+    "transaction_start": "2023-02",
+    "overlap_rows": 3330,
+    "overlap_differences": 235,
+    "cross_checks": 286,
+    "row_counts_by_source": {
+      "table3": 7280,
+      "historical_before_2020": 12535
+    },
+    "historical_only_entities": 41,
+    "dataset_id": "EXAMPLE-NOT-A-PRODUCTION-DATASET",
+    "example_only": true
+  },
+  "countries": [
+    {
+      "country_name": "Austria",
+      "country_code": "10189",
+      "region": "유럽",
+      "record_type": "country",
+      "rank_eligible": true
+    }
+  ],
+  "months": [
+    "2011-09"
+  ],
+  "records": [
+    [
+      "10189",
+      "2011-09",
+      2700,
+      2152,
+      548,
+      null,
+      null,
+      null,
+      null,
+      1
+    ]
+  ]
+}

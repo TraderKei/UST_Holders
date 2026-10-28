@@ -4,6 +4,12 @@
 
 이 문서는 루트 [`README.md`](../README.md)의 개발용 사본입니다. 작업 규칙은 [`AGENTS.md`](AGENTS.md)에 있습니다. 다른 개발 문서는 [설계 및 데이터](DESIGN_AND_DATA.md), [v2 데이터 수집](V2_DATA_COLLECTION.md), [운영 수집 아키텍처](INGESTION_ARCHITECTURE.md), [구현 상태와 검증 기록](PHASE_STATUS.md) 순서로 참고합니다.
 
+## Altibase 회사 시스템 운영 설계
+
+회사 시스템으로 전환할 때는 [Altibase 운영 설계서](altibase/UST_Holders_Altibase_Design.html)를 참고합니다. 업무 담당자용 쉬운 설명과 8개 테이블의 항목 정의, 입수·적재·검증·서비스 전환 절차, v2 화면 데이터 전달 규격, 장애 대응과 인수 기준을 포함합니다. 브라우저에서 열고 인쇄하거나 PDF로 저장할 수 있습니다.
+
+[테이블 생성 SQL 초안](altibase/create_tables.sql)과 [화면 전달 JSON 예시](altibase/v2-response-example.json)를 함께 제공합니다. SQL은 회사 Altibase에서 검증하기 전의 설계 초안이며 JSON 예시는 운영 게시용 데이터가 아닙니다. 기존 PostgreSQL 프로그램과 구분되는 목표 설계이며, 실제 회사 시스템 연동은 별도 구현과 검수가 필요합니다.
+
 ## 실행
 
 서버 없이 최종 화면을 보려면 프로젝트 루트의 [`UST_Holders_v2.html`](../UST_Holders_v2.html)을 브라우저에서 엽니다. 이 파일에는 화면 코드, 스타일, TIC 데이터 스냅샷이 포함되어 있습니다. `npm run build:standalone`은 별도 v1 파일을 생성하며 v2를 갱신하지 않습니다.

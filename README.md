@@ -4,6 +4,8 @@
 
 개발 문서는 [`docs/README.md`](docs/README.md)에서 시작합니다. 저장소 작업 규칙은 루트의 [`AGENTS.md`](AGENTS.md)에도 있으며 `/docs`에 사본을 보관합니다.
 
+회사 Altibase에서 v2 화면을 운영하기 위한 [개발 담당자 전달용 설계서](docs/altibase/UST_Holders_Altibase_Design.html)와 [테이블 생성 SQL 초안](docs/altibase/create_tables.sql), [화면 데이터 예시](docs/altibase/v2-response-example.json)를 제공합니다. 현재 구현 완료 내역과 구분되는 운영 전환 설계이며 회사 환경에서의 구현·검수가 필요합니다.
+
 ## 실행
 
 서버 없이 최종 화면을 보려면 프로젝트 루트의 [`UST_Holders_v2.html`](UST_Holders_v2.html)을 브라우저에서 엽니다. 이 파일에는 화면 코드, 스타일, TIC 데이터 스냅샷이 포함되어 있습니다. `npm run build:standalone`은 별도 v1 파일을 생성하며 v2를 갱신하지 않습니다.
