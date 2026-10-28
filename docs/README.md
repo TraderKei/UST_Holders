@@ -6,7 +6,7 @@
 
 ## Altibase 회사 시스템 운영 설계
 
-회사 시스템으로 전환할 때는 [Altibase 운영 설계서](altibase/UST_Holders_Altibase_Design.html)를 참고합니다. 업무 담당자용 쉬운 설명과 8개 테이블의 항목 정의, 입수·적재·검증·서비스 전환 절차, v2 화면 데이터 전달 규격, 장애 대응과 인수 기준을 포함합니다. 브라우저에서 열고 인쇄하거나 PDF로 저장할 수 있습니다.
+회사 시스템으로 전환할 때는 [Altibase 운영 설계서](altibase/UST_Holders_Altibase_Design.md)를 참고합니다. 업무 담당자용 쉬운 설명과 8개 테이블의 항목 정의, 입수·적재·검증·서비스 전환 절차, v2 화면 데이터 전달 규격, 장애 대응과 인수 기준을 포함합니다. Markdown 형식으로 제공하며 표·코드 예제·첨부 파일 링크를 유지했습니다.
 
 [테이블 생성 SQL 초안](altibase/create_tables.sql)과 [화면 전달 JSON 예시](altibase/v2-response-example.json)를 함께 제공합니다. SQL은 회사 Altibase에서 검증하기 전의 설계 초안이며 JSON 예시는 운영 게시용 데이터가 아닙니다. 기존 PostgreSQL 프로그램과 구분되는 목표 설계이며, 실제 회사 시스템 연동은 별도 구현과 검수가 필요합니다.
 
